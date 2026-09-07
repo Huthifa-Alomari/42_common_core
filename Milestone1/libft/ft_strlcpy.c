@@ -6,7 +6,13 @@
 /*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 22:07:07 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/07 22:08:52 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/09/07 23:21:57 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+{
+	
+}

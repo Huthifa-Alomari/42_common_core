@@ -6,7 +6,13 @@
 /*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 22:06:16 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/07 22:08:52 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/09/07 23:23:55 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+
+char	*ft_strdup(const char *s)
+{
+	
+}
