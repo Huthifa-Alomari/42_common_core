@@ -6,7 +6,7 @@
 /*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 22:06:28 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/07 23:24:47 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/09/09 21:33:08 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stddef.h>
+# include <stdio.h>
 
 
 int		ft_isalpha(int c);
