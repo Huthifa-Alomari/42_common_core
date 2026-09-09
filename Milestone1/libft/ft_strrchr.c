@@ -6,7 +6,7 @@
 /*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 14:37:06 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/07 14:54:57 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/09/09 14:11:23 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,16 @@
 char	*ft_strrchr(const char *s, int c)
 {
 	int	i;
+	
 
-	i = 0;
-	/*
-	while (s[i])
+	i = ft_strlen(s);
+	while (1)
 	{
 		if (s[i] == (char)c)
-			return ((char *)&s[i]);
-		i++;
+			return ((char *)(s + i));
+		if (i == 0)
+			break;
+		i--;
 	}
-	if (c == '\0')
-		return ((char *)&s[i]);
-	return (0);
-	*/
+	return (NULL);
 }
