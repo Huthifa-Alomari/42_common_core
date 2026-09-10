@@ -14,46 +14,33 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t                  dest_size;
-	size_t                  src_size;
-	size_t			i;
+	size_t	dest_len;
+	size_t	src_len;
+	size_t	i;
 
-	src_size = ft_strlen(src);
-	i = 0;
-
+	src_len = ft_strlen(src);
 	if (size == 0)
-		return (src_size);
-        dest_size = ft_strlen(dst);
-
-	if (dest_size >= size)
-		return (size + src_size);
-	if (size >= (dest_size + src_size))
+		return (src_len);
+	dest_len = ft_strlen(dst);
+	if (dest_len >= size)
+		return (size + src_len);
+	i = 0;
+	while (src[i] && (dest_len + i < size - 1))
 	{
-		while (src[i] && (dest_size + i < size - 1))
-		{
-			dst[dest_size + i] = src[i];
-			i++;
-		}
-		dst[dest_size + i] = '\0';
+		dst[dest_len + i] = src[i];
+		i++;
 	}
-	else
-	{
-		while (src[i] && (dest_size + i < size - 1))
-                {
-                        dst[dest_size + i] = src[i];
-                        i++;
-                }
-		dst[dest_size + i] = '\0';
-		return (dest_size + src_size);
-	}
-	return (dest_size + src_size);
+	dst[dest_len + i] = '\0';
+	return (dest_len + src_len);
 }
+
 /*
 #include <stdio.h>
-int main(void) {
-    char buf[8] = "42";
-    printf("Return: %zu | Buf: %s\n", ft_strlcat(buf, "Network", 8), buf);
-    return (0);
+
+int	main(void) {
+	char buf[8] = "42";
+	printf("Return: %zu | Buf: %s\n", ft_strlcat(buf, "Network", 8), buf);
+	return (0);
 }
 
 */
