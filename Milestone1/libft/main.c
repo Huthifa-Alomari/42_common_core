@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/07 22:05:59 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/10 18:00:24 by hal-omar         ###   ########.fr       */
+/*   Created: 2026/09/09 20:31:10 by hal-omar          #+#    #+#             */
+/*   Updated: 2026/09/10 13:59:40 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
+#include <stdio.h>
 
-void	*ft_calloc(size_t nmemb, size_t size)
+int main(void)
 {
-	unsigned char *ptr;
-	size_t i;
-	
-	ptr = malloc(nmemb * size);
-	if (!ptr)
-		return (NULL);
-	i = 0;
-	while (i < nmemb * size)
-	{
-		ptr[i] = 0;
-	}
-	return (ptr);
+    char s[] = "Hello World";
+    char *result;
+
+    result = ft_memchr(s, 'W', 11);
+
+    if (result)
+        printf("Found: %s\n", result);
+    else
+        printf("Not found\n");
+
+    return (0);
 }
