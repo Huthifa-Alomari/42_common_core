@@ -25,10 +25,3 @@ int	ft_strncmp(const char s1[], const char s2[], size_t n)
 	}
 	return (0);
 }
-/*
-int	main(void)
-{
-	printf("%d",ft_strncmp("abc", "abd", 3));  // negative
-	printf("%d",ft_strncmp("abc", "abc", 3));  // 0
-	printf("%d",ft_strncmp("abd", "abc", 3));  // positive
-}*/

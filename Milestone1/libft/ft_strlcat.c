@@ -34,13 +34,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	return (dest_len + src_len);
 }
 
-/*
-#include <stdio.h>
-
-int	main(void) {
-	char buf[8] = "42";
-	printf("Return: %zu | Buf: %s\n", ft_strlcat(buf, "Network", 8), buf);
-	return (0);
-}
-
-*/
