@@ -38,6 +38,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	substr[i] = '\0';
 	return (substr);
 }
+/*
 #include <stdio.h>
 
 int	main(void)
@@ -56,4 +57,4 @@ int	main(void)
 	r4 = ft_substr("Hello", 0, 0);
 	printf("%s \n", r4);
 	return (0);
-}
+}*/
