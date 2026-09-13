@@ -14,9 +14,11 @@
 
 int	count_digit(int n)
 {
-	if (n == 0)
-		return (0);
 	size_t	count;
+
+	count = 0;
+	if (n == 0)
+		return (1);
 	count = 0;
 	if (n < 0)
 		count = 1;
@@ -28,14 +30,27 @@ int	count_digit(int n)
 	return (count);
 }
 
-char *ft_itoa(int n)
+static void	fill(char *str, size_t i, int n)
+{
+	if (n == 0)
+		str[i] = '0';
+	while (n > 0)
+	{
+		str[i] = (n % 10) + '0';
+		n = n / 10;
+		i--;
+	}
+}
+
+char	*ft_itoa(int n)
 {
 	size_t	len;
 	size_t	i;
 	char	*str;
-	bool	neg;
+	int		neg;
+
 	if (n == -2147483648)
-		return ft_strdup("-2147483648");
+		return (ft_strdup("-2147483648"));
 	len = count_digit(n);
 	str = malloc(len + 1);
 	if (str == NULL)
@@ -48,18 +63,12 @@ char *ft_itoa(int n)
 		str[0] = '-';
 	}
 	i = len - 1;
-	if (n == 0)
-		str[i] = '0';
-	while (n > 0)
-	{
-		str[i] = (n % 10) + '0';
-		n = n / 10;
-		i--;
-	}
-	return str;
+	fill(str, i, n);
+	return (str);
 }
-
+/*
 #include <stdio.h>
+
 
 int	main(void)
 {
@@ -90,4 +99,4 @@ int	main(void)
 	free(r5);
 
 	return (0);
-}
+}*/
