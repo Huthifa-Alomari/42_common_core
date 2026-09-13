@@ -6,7 +6,7 @@
 /*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/11 18:50:53 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/11 18:50:54 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/09/13 16:04:38 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,9 @@
 
 void	ft_putendl_fd(char *s, int fd)
 {
-	
+	size_t	count;
+
+	count = ft_strlen(s);
+	write (fd, &s, count);
+	write (1, "\n", 1);
 }

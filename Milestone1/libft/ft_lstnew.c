@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/11 18:50:50 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/13 15:57:38 by hal-omar         ###   ########.fr       */
+/*   Created: 2026/09/13 17:39:51 by hal-omar          #+#    #+#             */
+/*   Updated: 2026/09/13 18:02:08 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+t_list *ft_lstnew(void *content)
 {
-	write (fd, &c , 1);
+
 }
-/*
-int	main ()
-{
-	ft_putchar_fd('a',1);
-}*/
