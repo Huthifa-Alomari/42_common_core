@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/11 18:51:01 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/11 18:51:02 by hal-omar         ###   ########.fr       */
+/*   Created: 2026/09/16 00:07:16 by hal-omar          #+#    #+#             */
+/*   Updated: 2026/09/16 00:07:18 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,22 +83,3 @@ char	**ft_split(char const *s, char c)
 	res[nword] = NULL;
 	return (res);
 }
-/*
-#include <stdio.h>
-
-int	main(void)
-{
-	char    **result;
-	int        i;
-
-	result = ft_split("the,quick,brown,fox", ',');
-	i = 0;
-	while (result[i])
-	{
-		printf("[%s]\n", result[i]);
-		free(result[i]);
-		i++;
-	}
-	free(result);
-	return (0);
-}*/

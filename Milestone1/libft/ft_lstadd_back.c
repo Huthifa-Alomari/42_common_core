@@ -6,7 +6,7 @@
 /*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/14 21:03:45 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/15 15:45:02 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/09/16 00:22:07 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_list *last;
-	
+	t_list	*last;
+
 	if (!lst || !new)
 		return ;
 	if (!*lst)

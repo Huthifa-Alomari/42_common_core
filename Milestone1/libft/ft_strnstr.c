@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/07 22:07:17 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/10 17:31:13 by hal-omar         ###   ########.fr       */
+/*   Created: 2026/09/16 00:09:24 by hal-omar          #+#    #+#             */
+/*   Updated: 2026/09/16 00:09:25 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	while (big[i] != '\0' && i < len)
 	{
 		j = 0;
-		while (big[i + j] == little[j] && big[i + j] && little[j] && i
-			+ j < len)
+		while (big[i + j] == little[j] && big[i + j] && little[j]
+			&& i + j < len)
 			j++;
 		if (little[j] == '\0')
 			return ((char *)big + i);
