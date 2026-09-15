@@ -6,7 +6,7 @@
 /*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/11 18:50:58 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/13 16:01:25 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/09/15 14:25:56 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,5 @@ void	ft_putstr_fd(char *s, int fd)
 	size_t	count;
 
 	count = ft_strlen(s);
-	write (fd, &s, count);
+	write(fd, s, count);
 }

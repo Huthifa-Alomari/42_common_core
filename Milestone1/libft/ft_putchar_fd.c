@@ -6,7 +6,7 @@
 /*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/11 18:50:50 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/13 15:57:38 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/09/15 14:25:41 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,5 @@
 
 void	ft_putchar_fd(char c, int fd)
 {
-	write (fd, &c , 1);
+	write(fd, &c, 1);
 }
-/*
-int	main ()
-{
-	ft_putchar_fd('a',1);
-}*/

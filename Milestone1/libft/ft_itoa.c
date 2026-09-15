@@ -6,7 +6,7 @@
 /*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/11 18:50:46 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/11 18:50:47 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/09/15 14:55:57 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,21 @@ int	count_digit(int n)
 	return (count);
 }
 
-static void	fill(char *str, size_t i, int n)
+static void	fill(char *str, size_t i, int n,int neg)
 {
 	if (n == 0)
+	{
 		str[i] = '0';
+		return;
+	}
 	while (n > 0)
 	{
 		str[i] = (n % 10) + '0';
 		n = n / 10;
 		i--;
 	}
+	if (neg)
+		str[0] = '-';
 }
 
 char	*ft_itoa(int n)
@@ -58,45 +63,8 @@ char	*ft_itoa(int n)
 	str[len] = '\0';
 	neg = (n < 0);
 	if (neg)
-	{
 		n = -n;
-		str[0] = '-';
-	}
 	i = len - 1;
-	fill(str, i, n);
+	fill(str, i, n,neg);
 	return (str);
 }
-/*
-#include <stdio.h>
-
-
-int	main(void)
-{
-	char	*r1;
-	char	*r2;
-	char	*r3;
-	char	*r4;
-	char	*r5;
-
-	r1 = ft_itoa(123);
-	printf("Test 1: \"%s\"\n", r1);
-	free(r1);
-
-	r2 = ft_itoa(-123);
-	printf("Test 2: \"%s\"\n", r2);
-	free(r2);
-
-	r3 = ft_itoa(0);
-	printf("Test 3: \"%s\"\n", r3);
-	free(r3);
-
-	r4 = ft_itoa(2147483647);
-	printf("Test 4: \"%s\"\n", r4);
-	free(r4);
-
-	r5 = ft_itoa(-2147483648);
-	printf("Test 5: \"%s\"\n", r5);
-	free(r5);
-
-	return (0);
-}*/

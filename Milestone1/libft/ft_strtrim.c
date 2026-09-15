@@ -6,7 +6,7 @@
 /*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/11 18:51:10 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/11 18:51:11 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/09/15 14:24:14 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,19 +61,4 @@ char	*ft_strtrim(char const *s1, char const *set)
 	}
 	string[i] = '\0';
 	return (string);
-}
-#include <stdio.h>
-
-int	main(void)
-{
-	char	*r1;
-	char	*r2;
-
-	r1 = ft_strtrim("   Hello World   ", " ");
-	printf("Test 1: \"%s\"\n", r1);
-	free(r1);
-	r2 = ft_strtrim("xxxx", "x");
-	printf("Test 2: \"%s\"\n", r2);
-	free(r2);
-	return (0);
 }

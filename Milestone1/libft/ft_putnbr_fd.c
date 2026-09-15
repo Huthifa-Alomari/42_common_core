@@ -21,12 +21,12 @@ void	ft_putnbr_fd(int n, int fd)
 	if (s < 0)
 	{
 		s = -s;
-		write (fd, "-", 1);
+		write(fd, "-", 1);
 	}
 	if (s > 9)
 	{
 		ft_putnbr_fd((s / 10), fd);
 	}
 	c = (s % 10) + '0';
-	write (fd, &c, 1);
+	write(fd, &c, 1);
 }

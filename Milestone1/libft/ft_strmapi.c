@@ -14,16 +14,16 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	// lens ? 
+	size_t	len;
+	size_t	i;
+	char	*nstr;
+
+	// lens ?
 	// char nstr
 	// malloc nstr + 1
 	// loop 0 ~ len
 	// 	nstr[i] = f(i,s[i])
 	// nstr[len] = '\0'
-	size_t	len;
-	size_t	i;
-	char	*nstr;
-
 	len = ft_strlen(s);
 	nstr = malloc(len + 1);
 	if (nstr == NULL)
@@ -55,7 +55,6 @@ int	main(void)
 	r1 = ft_strmapi("hello", my_upper);
 	printf("Test 1: \"%s\"\n", r1);
 	free(r1);
-
 	return (0);
 }
 */

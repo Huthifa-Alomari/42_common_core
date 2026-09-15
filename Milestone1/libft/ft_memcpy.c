@@ -6,13 +6,11 @@
 /*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 22:06:10 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/09 20:36:20 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/09/15 15:45:30 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-//#include <stdio.h>
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
