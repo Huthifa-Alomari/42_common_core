@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/11 18:50:46 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/15 14:55:57 by hal-omar         ###   ########.fr       */
+/*   Created: 2026/09/16 00:03:05 by hal-omar          #+#    #+#             */
+/*   Updated: 2026/09/16 00:15:17 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ int	count_digit(int n)
 	return (count);
 }
 
-static void	fill(char *str, size_t i, int n,int neg)
+static void	fill(char *str, size_t i, int n, int neg)
 {
 	if (n == 0)
 	{
 		str[i] = '0';
-		return;
+		return ;
 	}
 	while (n > 0)
 	{
@@ -65,6 +65,6 @@ char	*ft_itoa(int n)
 	if (neg)
 		n = -n;
 	i = len - 1;
-	fill(str, i, n,neg);
+	fill(str, i, n, neg);
 	return (str);
 }

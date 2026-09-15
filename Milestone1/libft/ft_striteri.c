@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/11 18:51:03 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/11 18:51:04 by hal-omar         ###   ########.fr       */
+/*   Created: 2026/09/16 00:07:53 by hal-omar          #+#    #+#             */
+/*   Updated: 2026/09/16 00:07:55 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,23 +23,3 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 		i++;
 	}
 }
-
-/*
-#include <stdio.h>
-
-void	my_upper_inplace(unsigned int i, char *c)
-{
-	(void)i;
-	if (*c >= 'a' && *c <= 'z')
-		*c = *c - 32;
-}
-
-int	main(void)
-{
-	char	s[] = "hello";
-
-	ft_striteri(s, my_upper_inplace);
-	printf("Test 1: \"%s\"\n", s);
-
-	return (0);
-}*/
