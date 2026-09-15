@@ -6,7 +6,7 @@
 /*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/11 18:51:05 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/11 18:51:06 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/09/15 14:23:55 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,4 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	nstr[i] = '\0';
 	return (nstr);
-}
-#include <stdio.h>
-
-int	main(void)
-{
-	printf("%s", ft_strjoin("Hello World", "Huthifa"));
-	return (0);
 }

@@ -86,19 +86,19 @@ char	**ft_split(char const *s, char c)
 /*
 #include <stdio.h>
 
-int    main(void)
+int	main(void)
 {
-    char    **result;
-    int        i;
+	char    **result;
+	int        i;
 
-    result = ft_split("the,quick,brown,fox", ',');
-    i = 0;
-    while (result[i])
-    {
-        printf("[%s]\n", result[i]);
-        free(result[i]);
-        i++;
-    }
-    free(result);
-    return (0);
+	result = ft_split("the,quick,brown,fox", ',');
+	i = 0;
+	while (result[i])
+	{
+		printf("[%s]\n", result[i]);
+		free(result[i]);
+		i++;
+	}
+	free(result);
+	return (0);
 }*/
