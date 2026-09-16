@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: hal-omar <hal-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 00:10:35 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/16 00:10:38 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/09/16 12:31:27 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# include <stddef.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 

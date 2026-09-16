@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: hal-omar <hal-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 22:05:51 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/07 22:40:23 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/09/16 15:08:40 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,8 @@ int	ft_atoi(const char *nptr)
 	if (nptr[i] == '-' || nptr[i] == '+')
 	{
 		if (nptr[i] == '-')
-		{
 			sign *= -1;
-			i++;
-		}
+		i++;
 	}
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{

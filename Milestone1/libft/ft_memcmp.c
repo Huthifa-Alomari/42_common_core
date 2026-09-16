@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: hal-omar <hal-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 00:05:59 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/16 00:21:16 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/09/16 13:41:35 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	size_t			i;
-	const unsigned char	*p1;
-	const unsigned char	*p2;
+	size_t					i;
+	const unsigned char		*p1;
+	const unsigned char		*p2;
 
 	if (s1 == s2 || n == 0)
 		return (0);
