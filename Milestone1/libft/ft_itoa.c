@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: hal-omar <hal-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 00:03:05 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/16 00:15:17 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/09/16 19:30:37 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_digit(int n)
+static int	count_digit(int n)
 {
 	size_t	count;
 
