@@ -6,7 +6,7 @@
 #    By: hal-omar <hal-omar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/16 00:10:55 by hal-omar          #+#    #+#              #
-#    Updated: 2026/09/16 14:13:40 by hal-omar         ###   ########.fr        #
+#    Updated: 2026/09/16 15:57:27 by hal-omar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,4 +49,4 @@ fclean: clean
 
 re: fclean all
 
-.phony : all fclean clean re
+.PHONY : all fclean clean re
