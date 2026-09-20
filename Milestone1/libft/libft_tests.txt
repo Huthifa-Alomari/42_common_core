@@ -1,0 +1,452 @@
+===== ft_isalpha.c =====
+int main(void)
+{
+	printf("%d\n", ft_isalpha('a'));
+	printf("%d\n", ft_isalpha('1'));
+	return (0);
+}
+
+===== ft_isdigit.c =====
+int main(void)
+{
+	printf("%d\n", ft_isdigit('5'));
+	printf("%d\n", ft_isdigit('a'));
+	return (0);
+}
+
+===== ft_isalnum.c =====
+int main(void)
+{
+	printf("%d\n", ft_isalnum('a'));
+	printf("%d\n", ft_isalnum('9'));
+	printf("%d\n", ft_isalnum('!'));
+	return (0);
+}
+
+===== ft_isascii.c =====
+int main(void)
+{
+	printf("%d\n", ft_isascii('a'));
+	printf("%d\n", ft_isascii(200));
+	return (0);
+}
+
+===== ft_isprint.c =====
+int main(void)
+{
+	printf("%d\n", ft_isprint('a'));
+	printf("%d\n", ft_isprint('\n'));
+	return (0);
+}
+
+===== ft_toupper.c =====
+int main(void)
+{
+	printf("%c\n", ft_toupper('a'));
+	printf("%c\n", ft_toupper('A'));
+	return (0);
+}
+
+===== ft_tolower.c =====
+int main(void)
+{
+	printf("%c\n", ft_tolower('A'));
+	printf("%c\n", ft_tolower('a'));
+	return (0);
+}
+
+===== ft_strlen.c =====
+int main(void)
+{
+	printf("%zu\n", ft_strlen("hello"));
+	printf("%zu\n", ft_strlen(""));
+	return (0);
+}
+
+===== ft_strchr.c =====
+int main(void)
+{
+	printf("%s\n", ft_strchr("hello world", 'w'));
+	printf("%p\n", (void *)ft_strchr("hello", 'z'));
+	return (0);
+}
+
+===== ft_strrchr.c =====
+int main(void)
+{
+	printf("%s\n", ft_strrchr("hello world", 'o'));
+	printf("%p\n", (void *)ft_strrchr("hello", 'z'));
+	return (0);
+}
+
+===== ft_strncmp.c =====
+int main(void)
+{
+	printf("%d\n", ft_strncmp("abc", "abc", 3));
+	printf("%d\n", ft_strncmp("abc", "abd", 3));
+	return (0);
+}
+
+===== ft_strlcpy.c =====
+int main(void)
+{
+	char	dst[20];
+
+	printf("%zu\n", ft_strlcpy(dst, "hello", sizeof(dst)));
+	printf("%s\n", dst);
+	return (0);
+}
+
+===== ft_strlcat.c =====
+int main(void)
+{
+	char	dst[20] = "foo";
+
+	printf("%zu\n", ft_strlcat(dst, "bar", sizeof(dst)));
+	printf("%s\n", dst);
+	return (0);
+}
+
+===== ft_strnstr.c =====
+int main(void)
+{
+	printf("%s\n", ft_strnstr("hello world", "world", 20));
+	printf("%p\n", (void *)ft_strnstr("hello", "xyz", 5));
+	return (0);
+}
+
+===== ft_memset.c =====
+int main(void)
+{
+	char	buf[6] = "abcde";
+
+	ft_memset(buf, 'x', 5);
+	printf("%s\n", buf);
+	return (0);
+}
+
+===== ft_bzero.c =====
+int main(void)
+{
+	char	buf[6] = "abcde";
+
+	ft_bzero(buf, 5);
+	printf("%d\n", buf[0]);
+	return (0);
+}
+
+===== ft_memcpy.c =====
+int main(void)
+{
+	char	dst[6];
+
+	ft_memcpy(dst, "hello", 6);
+	printf("%s\n", dst);
+	return (0);
+}
+
+===== ft_memmove.c =====
+int main(void)
+{
+	char	buf[12] = "hello world";
+
+	ft_memmove(buf + 6, buf, 5);
+	printf("%s\n", buf);
+	return (0);
+}
+
+===== ft_memchr.c =====
+int main(void)
+{
+	printf("%s\n", (char *)ft_memchr("hello", 'l', 5));
+	return (0);
+}
+
+===== ft_memcmp.c =====
+int main(void)
+{
+	printf("%d\n", ft_memcmp("abc", "abc", 3));
+	printf("%d\n", ft_memcmp("abc", "abd", 3));
+	return (0);
+}
+
+===== ft_atoi.c =====
+int main(void)
+{
+	printf("%d\n", ft_atoi("   -1234abc"));
+	printf("%d\n", ft_atoi("+42"));
+	return (0);
+}
+
+===== ft_calloc.c =====
+int main(void)
+{
+	int	*arr;
+
+	arr = ft_calloc(5, sizeof(int));
+	printf("%d\n", arr[0]);
+	free(arr);
+	return (0);
+}
+
+===== ft_strdup.c =====
+int main(void)
+{
+	char	*s;
+
+	s = ft_strdup("hello");
+	printf("%s\n", s);
+	free(s);
+	return (0);
+}
+
+===== ft_substr.c =====
+int main(void)
+{
+	char	*s;
+
+	s = ft_substr("hello world", 6, 5);
+	printf("%s\n", s);
+	free(s);
+	return (0);
+}
+
+===== ft_strjoin.c =====
+int main(void)
+{
+	char	*s;
+
+	s = ft_strjoin("hello ", "world");
+	printf("%s\n", s);
+	free(s);
+	return (0);
+}
+
+===== ft_strtrim.c =====
+int main(void)
+{
+	char	*s;
+
+	s = ft_strtrim("   hello   ", " ");
+	printf("%s\n", s);
+	free(s);
+	return (0);
+}
+
+===== ft_split.c =====
+int main(void)
+{
+	char	**arr;
+	int		i;
+
+	arr = ft_split("hello world foo", ' ');
+	i = 0;
+	while (arr[i])
+	{
+		printf("%s\n", arr[i]);
+		free(arr[i]);
+		i++;
+	}
+	free(arr);
+	return (0);
+}
+
+===== ft_itoa.c =====
+int main(void)
+{
+	char	*s;
+
+	s = ft_itoa(-42);
+	printf("%s\n", s);
+	free(s);
+	return (0);
+}
+
+===== ft_strmapi.c =====
+char	to_upper(unsigned int i, char c)
+{
+	(void)i;
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	return (c);
+}
+
+int main(void)
+{
+	char	*s;
+
+	s = ft_strmapi("hello", to_upper);
+	printf("%s\n", s);
+	free(s);
+	return (0);
+}
+
+===== ft_striteri.c =====
+void	put_star(unsigned int i, char *c)
+{
+	(void)i;
+	*c = '*';
+}
+
+int main(void)
+{
+	char	s[6] = "hello";
+
+	ft_striteri(s, put_star);
+	printf("%s\n", s);
+	return (0);
+}
+
+===== ft_putchar_fd.c =====
+int main(void)
+{
+	ft_putchar_fd('A', 1);
+	return (0);
+}
+
+===== ft_putstr_fd.c =====
+int main(void)
+{
+	ft_putstr_fd("hello", 1);
+	return (0);
+}
+
+===== ft_putendl_fd.c =====
+int main(void)
+{
+	ft_putendl_fd("hello", 1);
+	return (0);
+}
+
+===== ft_putnbr_fd.c =====
+int main(void)
+{
+	ft_putnbr_fd(-42, 1);
+	return (0);
+}
+
+===== ft_lstnew.c =====
+int main(void)
+{
+	t_list	*node;
+
+	node = ft_lstnew("data");
+	printf("%s\n", (char *)node->content);
+	free(node);
+	return (0);
+}
+
+===== ft_lstadd_front.c =====
+int main(void)
+{
+	t_list	*lst;
+
+	lst = ft_lstnew("b");
+	ft_lstadd_front(&lst, ft_lstnew("a"));
+	printf("%s\n", (char *)lst->content);
+	return (0);
+}
+
+===== ft_lstsize.c =====
+int main(void)
+{
+	t_list	*lst;
+
+	lst = ft_lstnew("a");
+	ft_lstadd_back(&lst, ft_lstnew("b"));
+	printf("%u\n", ft_lstsize(lst));
+	return (0);
+}
+
+===== ft_lstlast.c =====
+int main(void)
+{
+	t_list	*lst;
+
+	lst = ft_lstnew("a");
+	ft_lstadd_back(&lst, ft_lstnew("b"));
+	printf("%s\n", (char *)ft_lstlast(lst)->content);
+	return (0);
+}
+
+===== ft_lstadd_back.c =====
+int main(void)
+{
+	t_list	*lst;
+
+	lst = ft_lstnew("a");
+	ft_lstadd_back(&lst, ft_lstnew("b"));
+	printf("%s\n", (char *)lst->next->content);
+	return (0);
+}
+
+===== ft_lstdelone.c =====
+void	del(void *content)
+{
+	(void)content;
+}
+
+int main(void)
+{
+	t_list	*node;
+
+	node = ft_lstnew("a");
+	ft_lstdelone(node, del);
+	return (0);
+}
+
+===== ft_lstclear.c =====
+void	del(void *content)
+{
+	(void)content;
+}
+
+int main(void)
+{
+	t_list	*lst;
+
+	lst = ft_lstnew("a");
+	ft_lstadd_back(&lst, ft_lstnew("b"));
+	ft_lstclear(&lst, del);
+	printf("%p\n", (void *)lst);
+	return (0);
+}
+
+===== ft_lstiter.c =====
+void	print_content(void *content)
+{
+	printf("%s\n", (char *)content);
+}
+
+int main(void)
+{
+	t_list	*lst;
+
+	lst = ft_lstnew("a");
+	ft_lstadd_back(&lst, ft_lstnew("b"));
+	ft_lstiter(lst, print_content);
+	return (0);
+}
+
+===== ft_lstmap.c =====
+void	*upper(void *content)
+{
+	return (content);
+}
+
+void	del(void *content)
+{
+	(void)content;
+}
+
+int main(void)
+{
+	t_list	*lst;
+	t_list	*new;
+
+	lst = ft_lstnew("a");
+	ft_lstadd_back(&lst, ft_lstnew("b"));
+	new = ft_lstmap(lst, upper, del);
+	printf("%s\n", (char *)new->content);
+	return (0);
+}
