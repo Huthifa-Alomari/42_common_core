@@ -6,7 +6,7 @@
 /*   By: hal-omar <hal-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/14 21:29:09 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/16 13:55:02 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/09/18 16:25:42 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	while (lst)
 	{
 		content = f(lst->content);
-		if (!content)
-			return (ft_lstclear(&new, del), NULL);
 		node = ft_lstnew(content);
 		if (!node)
 		{
