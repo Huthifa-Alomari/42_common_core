@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+         #
+#    By: hal-omar <hal-omar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/20 20:00:10 by hal-omar          #+#    #+#              #
-#    Updated: 2026/09/21 13:23:49 by hal-omar         ###   ########.fr        #
+#    Updated: 2026/09/21 18:32:15 by hal-omar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,15 @@ CFLAGS  = -Wall -Werror -Wextra
 RM      = rm -rf
 AR      = ar rcs
 
-SRCS    = ft_printf.c ft_putchar.c ft_puthex.c ft_strlen.c \
-              ft_putmem.c ft_putnbr.c ft_putstr.c ft_putunsigned.c
-
+SRCS    = ft_printf.c \
+            ft_format.c \
+            ft_putchar.c \
+            ft_putstr.c \
+            ft_putnbr.c \
+            ft_putunsigned.c \
+            ft_puthex.c \
+            ft_putptr.c
+			
 OBJS    = $(SRCS:.c=.o)
 
 all: $(NAME)

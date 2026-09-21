@@ -1,41 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putunsigned.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hal-omar <hal-omar@student.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/19 21:12:31 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/20 14:28:17 by hal-omar         ###   ########.fr       */
+/*   Created: 2026/09/21 17:33:03 by hal-omar          #+#    #+#             */
+/*   Updated: 2026/09/21 17:33:04 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
-{
-	va_list	args;
-	int		i;
-	int		total_len;
+int	ft_putunsigned(unsigned int n)
+  {
+  	int	count;
 
-	if (!format)
-		return (-1);
-	va_start(args, format);
-	i = 0;
-	total_len = 0;
-	while (format[i])
-	{
-		if (format[i] == '%')
-		{
-			if (format[i + 1] == '\0')
-				break;
-			total_len += ft_format(args, format[i + 1]);
-			i++;
-		}
-		else
-			total_len += write(1, &format[i], 1);
-		i++;
-	}
-	va_end(args);
-	return (total_len);
-}
+  	count = 0;
+  	if (n >= 10)
+  		count += ft_putunsigned(n / 10);
+  	count += ft_putchar((n % 10) + '0');
+  	return (count);
+  }

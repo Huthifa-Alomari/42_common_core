@@ -1,41 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hal-omar <hal-omar@student.42.tech>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/19 21:12:31 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/20 14:28:17 by hal-omar         ###   ########.fr       */
+/*   Created: 2026/09/21 17:27:55 by hal-omar          #+#    #+#             */
+/*   Updated: 2026/09/21 17:30:28 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+int	ft_putstr(char *s)
 {
-	va_list	args;
-	int		i;
-	int		total_len;
+	int len;
 
-	if (!format)
-		return (-1);
-	va_start(args, format);
-	i = 0;
-	total_len = 0;
-	while (format[i])
-	{
-		if (format[i] == '%')
-		{
-			if (format[i + 1] == '\0')
-				break;
-			total_len += ft_format(args, format[i + 1]);
-			i++;
-		}
-		else
-			total_len += write(1, &format[i], 1);
-		i++;
-	}
-	va_end(args);
-	return (total_len);
+    if (!s)
+        return(write(1, "(null)", 6));
+    len = 0;
+    while (s[len])
+    {
+            write(1, &s[len], 1);
+            len++;
+    }
+	return(len);
 }
