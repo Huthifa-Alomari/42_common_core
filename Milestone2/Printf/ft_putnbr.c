@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/19 21:50:28 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/21 13:39:59 by hal-omar         ###   ########.fr       */
+/*   Created: 2026/09/21 13:39:40 by hal-omar          #+#    #+#             */
+/*   Updated: 2026/09/21 13:39:47 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <unistd.h>
-# include <stdlib.h>
+int	ft_putnbr(int n)
+{
+	long	nb;
+	int		count;
 
-int	ft_printf(const char *format, ...);
-int	ft_format(va_list args, const char specifier);
-int	ft_putchar(char c);
-int	ft_putnbr(int n);
-
-#endif
+	count = 0;
+	nb = n;
+	if (nb < 0)
+	{
+		count += ft_putchar('-');
+		nb *= -1;
+	}
+	if (nb >= 10)
+	{
+		count += ft_putnbr(nb / 10);
+	}
+	count += ft_putchar((nb % 10) + '0');
+	return (count);
+}
