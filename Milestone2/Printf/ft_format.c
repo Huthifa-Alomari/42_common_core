@@ -18,7 +18,7 @@ int	ft_format(va_list args, const char specifier)
 
 	len = 0;
 	if (specifier == 'c')
-		len += ft_putchar(va_arg(args,int));
+		len += ft_putchar(va_arg(args, int));
 	else if (specifier == 's')
 		len += ft_putstr(va_arg(args,char *));
 	else if (specifier == 'd' || specifier == 'i')
