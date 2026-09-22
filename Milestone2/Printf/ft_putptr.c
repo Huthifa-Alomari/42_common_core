@@ -3,7 +3,8 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hal-omar <hal-omar@student.42.tech>          +#+  +:+       +#+        */
+/*   By: hal-omar <hal-omar@student.42.tech>          +#+  +:+      
+	+#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/21 18:11:00 by hal-omar          #+#    #+#             */
 /*   Updated: 2026/09/21 18:11:01 by hal-omar         ###   ########.fr       */
