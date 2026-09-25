@@ -1,0 +1,4 @@
+Hello 42!
+Second line.
+
+Last line without newline
