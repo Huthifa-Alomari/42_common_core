@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: hal-omar <hal-omar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/23 16:05:35 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/26 14:12:02 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/09/27 14:58:42 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ char	*get_next_line(int fd)
 	static char	*stash;
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
-		return (NULL);
+	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE > 2147483647 - 1)
+    	return (NULL);
 	stash = fill_stash(fd, stash);
 	if (!stash)
 		return (NULL);
