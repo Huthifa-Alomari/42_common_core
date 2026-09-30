@@ -1,4 +1,4 @@
-*This activity has been created as part of the 42 curriculum by <your_login>.*
+*This activity has been created as part of the 42 curriculum by hal-omar.*
 
 # get_next_line
 
@@ -19,7 +19,7 @@ char *get_next_line(int fd);
 
 ### Compilation
 
-The project has no standalone binary target — it's compiled directly into whatever `.c` file uses it, at the root of the repository:
+The project has no standalone binary target — it's compiled directly into whatever `.c` file uses it:
 
 ```sh
 cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c your_main.c
@@ -49,6 +49,16 @@ int main(void)
 ```
 
 Works identically whether `fd` points to a regular file, standard input, or a pipe.
+
+### Tests
+
+`tests/main.c` prints every line of `tests/text.txt`. Run it from the `tests/` folder, ideally with different buffer sizes and under Valgrind:
+
+```sh
+cd tests
+cc -Wall -Wextra -Werror -D BUFFER_SIZE=1 ../get_next_line.c ../get_next_line_utils.c main.c
+valgrind --leak-check=full ./a.out
+```
 
 ### Known limitation
 
@@ -83,3 +93,9 @@ Claude (Anthropic) was used throughout development as a Socratic tutor, not as a
 - **Explanation/defense prep:** traced execution call-by-call against a test file (byte offsets, heap block contents, syscall behavior) after I asked, and was pushed for a full set of interview-style questions covering every code path, to prepare for peer evaluation.
 
 No AI-generated code from this process was pasted directly into the submitted files without being written or fixed by me first.
+
+**After evaluation (public version):** Claude reviewed the code again before this repository was made public and fixed three edge cases directly:
+
+- When a file ended with `\n`, the call after the last line returned an empty string `""` instead of `NULL`. `update_stash` now frees the stash when nothing is left after the newline.
+- A `read()` error in the middle of a file (`-1`) now frees the stash and returns `NULL`, instead of returning the old buffered data.
+- If `malloc` fails inside `gnl_strjoin` or `fill_stash`, the existing stash is now freed instead of leaked.

@@ -19,11 +19,16 @@ static char	*fill_stash(int fd, char *stash)
 
 	buffer = malloc(BUFFER_SIZE + 1);
 	if (!buffer)
-		return (NULL);
+		return (free(stash), NULL);
 	bytes_read = 1;
 	while ((!stash || !gnl_strchr(stash, '\n')) && bytes_read > 0)
 	{
 		bytes_read = read(fd, buffer, BUFFER_SIZE);
+		if (bytes_read < 0)
+		{
+			free(stash);
+			stash = NULL;
+		}
 		if (bytes_read <= 0)
 			break ;
 		buffer[bytes_read] = '\0';
@@ -52,7 +57,7 @@ static char	*update_stash(char *stash)
 	char	*rest;
 
 	nl_pos = gnl_strchr(stash, '\n');
-	if (!nl_pos)
+	if (!nl_pos || nl_pos[1] == '\0')
 	{
 		free(stash);
 		return (NULL);
@@ -68,7 +73,7 @@ char	*get_next_line(int fd)
 	char		*line;
 
 	if (fd < 0 || BUFFER_SIZE <= 0 || BUFFER_SIZE > 2147483647 - 1)
-    	return (NULL);
+		return (NULL);
 	stash = fill_stash(fd, stash);
 	if (!stash)
 		return (NULL);

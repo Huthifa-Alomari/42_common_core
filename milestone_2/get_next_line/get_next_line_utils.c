@@ -75,7 +75,7 @@ char	*gnl_strjoin(char const *s1, char const *s2)
 		return (gnl_substr(s2, 0, gnl_strlen(s2)));
 	nstr = malloc(gnl_strlen(s1) + gnl_strlen(s2) + 1);
 	if (!nstr)
-		return (NULL);
+		return (free((char *)s1), NULL);
 	i = 0;
 	j = 0;
 	while (s1[i])

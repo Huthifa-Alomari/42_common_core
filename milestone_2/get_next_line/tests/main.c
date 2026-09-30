@@ -15,7 +15,7 @@
 #include <fcntl.h>
 
 /*
-	cc -Wall -Wextra -Werror get_next_line*.c main.c
+	cd tests && cc -Wall -Wextra -Werror ../get_next_line*.c main.c
 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./a.out
 */
 
@@ -32,7 +32,7 @@ int	main(void)
 	while ((line = get_next_line(fd)) != NULL)
 	{
 		printf("%d ->%s", i++, line);
-		free(line); 
+		free(line);
 	}
 	close(fd);
 	return (0);
