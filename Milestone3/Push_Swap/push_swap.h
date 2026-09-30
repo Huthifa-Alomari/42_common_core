@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putunsigned.c                                   :+:      :+:    :+:   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hal-omar <hal-omar@student.42.tech>          +#+  +:+
-	+#+        */
+/*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/09/21 17:33:03 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/21 17:33:04 by hal-omar         ###   ########.fr       */
+/*   Created: 2026/09/30 16:40:27 by hal-omar          #+#    #+#             */
+/*   Updated: 2026/09/30 17:28:30 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include <unistd.h>
+#include <stdlib.h>
 
-int	ft_putunsigned(unsigned int n)
+typedef struct s_list
 {
-	int	count;
-
-	count = 0;
-	if (n >= 10)
-		count += ft_putunsigned(n / 10);
-	count += ft_putchar((n % 10) + '0');
-	return (count);
-}
+	int				value;
+	struct s_list	*next;
+	struct s_list	*prev;
+}	t_list;
