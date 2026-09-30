@@ -10,11 +10,10 @@
 ![Norminette](https://img.shields.io/badge/norminette-passing-success)
 
 
-[
 
 ![License: MIT](https://img.shields.io/badge/license-MIT-blue)
 
-](LICENSE)
+(LICENSE)
 
 My projects from the **Common Core** curriculum at [42](https://42.fr), written in C.
 
