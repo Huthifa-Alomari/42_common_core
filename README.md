@@ -1,5 +1,10 @@
 # 42 Common Core
 
+[![CI](https://github.com/Huthifa-Alomari/42_common_core/actions/workflows/ci.yml/badge.svg)](https://github.com/Huthifa-Alomari/42_common_core/actions/workflows/ci.yml)
+![Language: C](https://img.shields.io/badge/language-C-00599C?logo=c&logoColor=white)
+![Norminette](https://img.shields.io/badge/norminette-passing-success)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+
 My projects from the **Common Core** curriculum at [42](https://42.fr), written in C.
 
 Every project follows the 42 rules: code must pass the [Norm](https://github.com/42School/norminette) (strict style: max 25 lines per function, max 5 functions per file, no `for` loops…), compile with `-Wall -Wextra -Werror`, have no memory leaks, and use only the functions allowed by the subject.
@@ -30,6 +35,8 @@ Each project has its own README explaining how it works and how to use it.
 
 Each project folder is self-contained, with its own `Makefile`, sources, header and README. Test programs live in a `tests/` folder inside each project and are not part of the build.
 
+On every push, [GitHub Actions](.github/workflows/ci.yml) checks the Norm, builds each finished project and runs its tests under Valgrind to catch memory leaks.
+
 ## Build and test
 
 ```sh
@@ -46,6 +53,10 @@ To check the Norm yourself:
 pip install norminette
 norminette milestone_1 milestone_2
 ```
+
+## License
+
+This repository is released under the [MIT License](LICENSE).
 
 ## Author
 

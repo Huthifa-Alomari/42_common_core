@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  norminette:
+    name: Norminette
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install norminette
+        run: pip install norminette
+      - name: Check the Norm (finished projects, test files excluded)
+        run: |
+          norminette milestone_1/libft/*.c milestone_1/libft/*.h \
+                     milestone_2/ft_printf/*.c milestone_2/ft_printf/*.h \
+                     milestone_2/get_next_line/*.c milestone_2/get_next_line/*.h
+
+  build:
+    name: Build and test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install valgrind
+        run: sudo apt-get update -q && sudo apt-get install -y -q valgrind
+
+      - name: libft
+        working-directory: milestone_1/libft
+        run: make && make fclean
+
+      - name: ft_printf
+        working-directory: milestone_2/ft_printf
+        run: |
+          make
+          cc tests/test.c libftprintf.a -o test_printf 2>/dev/null
+          valgrind --leak-check=full --error-exitcode=1 ./test_printf > /dev/null
+          make fclean
+
+      - name: get_next_line (several BUFFER_SIZE values, no leaks)
+        working-directory: milestone_2/get_next_line/tests
+        run: |
+          for size in 1 2 42 10000; do
+            echo "BUFFER_SIZE=$size"
+            cc -Wall -Wextra -Werror -D BUFFER_SIZE=$size ../get_next_line.c ../get_next_line_utils.c main.c -o gnl
+            valgrind --leak-check=full --errors-for-leak-kinds=all --error-exitcode=1 ./gnl
+          done
