@@ -24,7 +24,7 @@ SRCS    = ft_printf.c \
             ft_putunsigned.c \
             ft_puthex.c \
             ft_putptr.c
-			
+
 OBJS    = $(SRCS:.c=.o)
 
 all: $(NAME)
@@ -32,7 +32,7 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
-%.o: %.c
+%.o: %.c ft_printf.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

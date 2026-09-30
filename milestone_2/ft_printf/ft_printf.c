@@ -3,8 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hal-omar <hal-omar@student.42.tech>          +#+  +:+      
-	+#+        */
+/*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/19 21:12:31 by hal-omar          #+#    #+#             */
 /*   Updated: 2026/09/20 14:28:17 by hal-omar         ###   ########.fr       */

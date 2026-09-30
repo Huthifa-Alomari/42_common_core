@@ -1,29 +1,54 @@
 # 42 Common Core
 
-My projects from the 42 Common Core curriculum.
+My projects from the **Common Core** curriculum at [42](https://42.fr), written in C.
 
-| Milestone | Project | Description | Status |
-|-----------|---------|-------------|--------|
-| 1 | [libft](milestone_1/libft) | My own C library: libc functions, string helpers, linked lists | ✅ Done |
-| 2 | [ft_printf](milestone_2/ft_printf) | Recreation of `printf` (`%c %s %p %d %i %u %x %X %%`) | ✅ Done |
-| 2 | [get_next_line](milestone_2/get_next_line) | Read a file descriptor one line at a time | ✅ Done |
-| 3 | [push_swap](milestone_3/push_swap) | Sort a stack of integers with a limited set of operations | 🚧 In progress |
+Every project follows the 42 rules: code must pass the [Norm](https://github.com/42School/norminette) (strict style: max 25 lines per function, max 5 functions per file, no `for` loops…), compile with `-Wall -Wextra -Werror`, have no memory leaks, and use only the functions allowed by the subject.
 
-## Structure
+## Projects
 
-Each project folder is self-contained and can be copied as-is into its
-submission repository. Test files live in a `tests/` folder inside each project.
+| Milestone | Project | What it is | Status |
+|:---------:|---------|------------|:------:|
+| 1 | [**libft**](milestone_1/libft) | My own C library: libc functions (`strlen`, `memcpy`, `atoi`…), string helpers (`split`, `itoa`…) and linked lists | ✅ |
+| 2 | [**ft_printf**](milestone_2/ft_printf) | A re-implementation of `printf` using variadic arguments | ✅ |
+| 2 | [**get_next_line**](milestone_2/get_next_line) | Reads a file descriptor one line at a time using a `static` buffer | ✅ |
+| 3 | [**push_swap**](milestone_3/push_swap) | Sorts numbers using two stacks and a limited set of operations | 🚧 In progress |
+
+Each project has its own README explaining how it works and how to use it.
+
+## Repository structure
 
 ```
-milestone_N/<project>/
-├── Makefile
-├── *.c / *.h
-├── README.md
-└── tests/
+42_common_core/
+├── milestone_1/
+│   └── libft/
+├── milestone_2/
+│   ├── ft_printf/
+│   └── get_next_line/
+└── milestone_3/
+    └── push_swap/
 ```
 
-## Build
+Each project folder is self-contained, with its own `Makefile`, sources, header and README. Test programs live in a `tests/` folder inside each project and are not part of the build.
+
+## Build and test
 
 ```sh
-cd milestone_1/libft && make
+git clone https://github.com/Huthifa-Alomari/42_common_core.git
+cd 42_common_core/milestone_1/libft
+make
 ```
+
+Every `Makefile` has the standard rules: `make`, `make clean`, `make fclean` and `make re`.
+
+To check the Norm yourself:
+
+```sh
+pip install norminette
+norminette milestone_1 milestone_2
+```
+
+## Author
+
+**Huthifa Alomari** (`hal-omar`), student at 42.
+
+> If you are a 42 student: feel free to read the code to learn, but write your own. Copying will not help you in the evaluations or the exams.

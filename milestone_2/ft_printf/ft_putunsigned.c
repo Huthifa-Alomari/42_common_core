@@ -3,8 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putunsigned.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hal-omar <hal-omar@student.42.tech>          +#+  +:+
-	+#+        */
+/*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/21 17:33:03 by hal-omar          #+#    #+#             */
 /*   Updated: 2026/09/21 17:33:04 by hal-omar         ###   ########.fr       */

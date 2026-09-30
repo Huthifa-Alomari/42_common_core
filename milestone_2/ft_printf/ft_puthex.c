@@ -3,8 +3,7 @@
 /*                                                        :::      ::::::::   */
 /*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hal-omar <hal-omar@student.42.tech>          +#+  +:+
-	+#+        */
+/*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/21 18:11:10 by hal-omar          #+#    #+#             */
 /*   Updated: 2026/09/21 18:11:11 by hal-omar         ###   ########.fr       */
@@ -15,13 +14,12 @@
 
 int	ft_puthex(unsigned int n, const char format)
 {
-	int	count;
-	char		*base;
+	int		count;
+	char	*base;
 
 	count = 0;
-	if (format == 'x')
-		base = "0123456789abcdef";
-	else if (format == 'X')
+	base = "0123456789abcdef";
+	if (format == 'X')
 		base = "0123456789ABCDEF";
 	if (n >= 16)
 	{
