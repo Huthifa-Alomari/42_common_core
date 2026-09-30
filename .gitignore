@@ -1,1 +1,11 @@
+# Editor
 .vscode/
+.idea/
+.DS_Store
+
+# Build output
+*.o
+*.a
+*.out
+*.dSYM/
+milestone_3/push_swap/push_swap
