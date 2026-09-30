@@ -1,6 +1,5 @@
 # 42 Common Core
 
-[![CI](https://github.com/Huthifa-Alomari/42_common_core/actions/workflows/ci.yml/badge.svg)](https://github.com/Huthifa-Alomari/42_common_core/actions/workflows/ci.yml)
 ![Language: C](https://img.shields.io/badge/language-C-00599C?logo=c&logoColor=white)
 ![Norminette](https://img.shields.io/badge/norminette-passing-success)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
