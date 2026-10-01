@@ -3,24 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   ops_push.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
+/*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 19:05:50 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/30 19:55:53 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/02 01:42:34 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_push(t_list **dest, t_list **src)
+static void	op_print(t_ps *ps, char op)
 {
-	t_list	*tmp;
+	if (++ps->count[PA] && ++ps->count[TOTAL_OPS])
+		write(1, "pa\n", 3);
+	if (++ps->count[PB] && ++ps->count[TOTAL_OPS])
+		write(1, "pb\n", 3);
+}
 
-	if (!src || !*src)
-		return ;
+void	op_push(t_ps *ps, char op)
+{
+	t_node	*tmp;
 
-	tmp = *src;
-	*src = (*src)->next;
-	tmp->next = *dest;
-	*dest = tmp;
+	if (op == 'a' && ps->b)
+	{
+		tmp = ps->b;
+		ps->b = ps->b->next;
+		tmp->next = ps->a;
+		ps->a = tmp;
+		op_print(ps, op);
+	}
+	else if (op == 'b' && ps->a)
+	{
+		tmp = ps->a;
+		ps->a = ps->a->next;
+		tmp->next = ps->b;
+		ps->b = tmp;
+		op_print(ps, op);
+	}
 }

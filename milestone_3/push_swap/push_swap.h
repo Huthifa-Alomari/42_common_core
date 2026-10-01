@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
+/*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 16:40:27 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/01 20:55:54 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/02 01:44:01 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef enum e_op
 	RRA,
 	RRB,
 	RRR,
-	OP_COUNT
+	TOTAL_OPS
 }	t_op;
 
 typedef enum e_strategy
@@ -52,10 +52,9 @@ typedef struct s_ps
 	t_node		*a;
 	t_node		*b;
 	int			bench;
+    double      disorder;
 	t_strategy	strategy;
-	long		mistakes;
-	long		total_pairs;
-	int			counts[OP_COUNT];
+    int         count[TOTAL_OPS];
 }	t_ps;
 
 void	op_swap(t_ps *ps, char op);
