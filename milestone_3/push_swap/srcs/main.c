@@ -36,9 +36,11 @@ static void	add_back(t_node **stack, int value)
 
 static void	print_stacks(t_node *ps, char *label)
 {
-	t_node	*a = ps->a;
-	t_node	*b = ps->b;
+	t_node	*a;
+	t_node	*b;
 
+	a = ps->a;
+	b = ps->b;
 	fprintf(stderr, "--- %s ---\n", label);
 	while (a || b)
 	{
@@ -70,7 +72,7 @@ static void	free_stack(t_node **stack)
 
 int	main(void)
 {
-	t_ps	ps = {0};
+	t_ps ps = {0};
 
 	add_back(&ps.a, 3);
 	add_back(&ps.a, 1);

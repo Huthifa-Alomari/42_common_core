@@ -1,37 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ops_swap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayhshala <ayham.shalabi@learner.42.tech    +#+  +:+       +#+        */
+/*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 16:36:39 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/30 18:33:16 by ayhshala         ###   ########.fr       */
+/*   Updated: 2026/10/02 01:42:52 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_swap(t_list **a, t_list **b, char op)
+static void	op_print(t_ps *ps, char op)
 {
-	if (op == 'a' && (a && *a && (*a)->next))
-	{
-		// TODO
+	if (op == 'a' && ++ps->count[SA] && ++ps->count[TOTAL_OPS])
 		write(1, "sa\n", 3);
-	}
-	else if (op == 'b' && (b && *b && (*b)->next))
-	{
-		// TODO
+	if (op == 'b' && ++ps->count[SB] && ++ps->count[TOTAL_OPS])
 		write(1, "sb\n", 3);
-	}
-	else if (op == 's' && ((a && *a && (*a)->next) || (b && *b && (*b)->next)))
-	{
-		ft_swap(a, NULL, 'a');
-		ft_swap(NULL, b, 'b');
+	if (op == 's' && ++ps->count[SS] && ++ps->count[TOTAL_OPS])
 		write(1, "ss\n", 3);
-	}
 }
 
-// ft_swap(&stack_a, NULL, 'a');
-// ft_swap(NULL, &stack_b, 'b');
-// ft_swap(&stack_a, &stack_b, 's');
+void	op_swap(t_ps *ps, char op)
+{
+	t_node	*tmp;
+	int		s;
+
+	s = 0;
+	if ((op == 'a' || op == 's') && ps->a && ps->a->next && ++s)
+	{
+		tmp = ps->a->next;
+		ps->a->next = tmp->next;
+		tmp->next = ps->a;
+		ps->a = tmp;
+	}
+	if ((op == 'b' || op == 's') && ps->b && ps->b->next && ++s)
+	{
+		tmp = ps->b->next;
+		ps->b->next = tmp->next;
+		tmp->next = ps->b;
+		ps->b = tmp;
+	}
+	op_print(ps, op);
+}
