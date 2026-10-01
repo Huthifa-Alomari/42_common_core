@@ -3,21 +3,64 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayhshala <ayham.shalabi@learner.42.tech    +#+  +:+       +#+        */
+/*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 16:40:27 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/30 17:56:30 by ayhshala         ###   ########.fr       */
+/*   Updated: 2026/10/01 20:55:54 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdlib.h>
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-typedef struct s_list
+# include <unistd.h>
+# include <stdlib.h>
+
+typedef enum e_op
+{
+	SA,
+	SB,
+	SS,
+	PA,
+	PB,
+	RA,
+	RB,
+	RR,
+	RRA,
+	RRB,
+	RRR,
+	OP_COUNT
+}	t_op;
+
+typedef enum e_strategy
+{
+	ADAPTIVE,
+	SIMPLE,
+	MEDIUM,
+	COMPLEX
+}	t_strategy;
+
+typedef struct s_node
 {
 	int				value;
-	struct s_list	*next;
-}	t_list;
+	int				rank;
+	struct s_node	*next;
+}	t_node;
 
+typedef struct s_ps
+{
+	t_node		*a;
+	t_node		*b;
+	int			bench;
+	t_strategy	strategy;
+	long		mistakes;
+	long		total_pairs;
+	int			counts[OP_COUNT];
+}	t_ps;
 
-void	ft_swap(t_list **a, t_list **b, char op);
+void	op_swap(t_ps *ps, char op);
+void	op_push(t_ps *ps, char op);
+void	op_rotate(t_ps *ps, char op);
+void	op_reverse(t_ps *ps, char op);
+
+#endif
