@@ -6,7 +6,7 @@
 /*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 19:07:23 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/01 20:53:26 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/02 18:37:45 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static void	add_back(t_node **stack, int value)
 	last->next = node;
 }
 
-static void	print_stacks(t_node *ps, char *label)
+static void	print_stacks(t_ps *ps, char *label)
 {
 	t_node	*a;
 	t_node	*b;
@@ -70,27 +70,31 @@ static void	free_stack(t_node **stack)
 	}
 }
 
-int	main(void)
+int	main(int argc, char **argv)
 {
-	t_ps ps = {0};
+	t_ps	ps = {0};
+	int		i;
 
-	add_back(&ps.a, 3);
-	add_back(&ps.a, 1);
-	add_back(&ps.a, 2);
+	i = 1;
+	while (i < argc)
+		add_back(&ps.a, atoi(argv[i++]));
 	print_stacks(&ps, "start");
 	op_swap(&ps, 'a');
-	print_stacks(&ps, "after sa");
+	print_stacks(&ps, "sa");
 	op_push(&ps, 'b');
 	op_push(&ps, 'b');
-	print_stacks(&ps, "after pb pb");
-	op_swap(&ps, 'b');
-	print_stacks(&ps, "after sb");
+	op_push(&ps, 'b');
+	print_stacks(&ps, "pb x3");
 	op_rotate(&ps, 'r');
-	print_stacks(&ps, "after rr");
+	print_stacks(&ps, "rr");
+	op_reverse(&ps, 'r');
+	print_stacks(&ps, "rrr");
+	op_swap(&ps, 'a');
+	print_stacks(&ps, "sa");
 	op_push(&ps, 'a');
 	op_push(&ps, 'a');
 	op_push(&ps, 'a');
-	print_stacks(&ps, "after pa x3 (one extra, b empty)");
+	print_stacks(&ps, "pa x3");
 	free_stack(&ps.a);
 	free_stack(&ps.b);
 	return (0);
