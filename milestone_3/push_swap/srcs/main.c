@@ -6,13 +6,23 @@
 /*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 19:07:23 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/02 18:37:45 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/02 21:31:45 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
+int	main(int argc, char **argv)
+{
+	t_ps	ps;
+
+	if (argc < 2)
+		return (0);
+	ps = {0};
+	parse_args(ps, argc, argv);
+}
+
+/*
 static void	add_back(t_node **stack, int value)
 {
 	t_node	*node;
@@ -98,4 +108,4 @@ int	main(int argc, char **argv)
 	free_stack(&ps.a);
 	free_stack(&ps.b);
 	return (0);
-}
+}*/
