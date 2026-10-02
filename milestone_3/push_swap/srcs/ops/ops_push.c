@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ops_push.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
+/*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 19:05:50 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/02 01:42:34 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/02 18:04:52 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 static void	op_print(t_ps *ps, char op)
 {
-	if (++ps->count[PA] && ++ps->count[TOTAL_OPS])
+	if (op == 'a' && ++ps->count[PA] && ++ps->count[TOTAL_OPS])
 		write(1, "pa\n", 3);
-	if (++ps->count[PB] && ++ps->count[TOTAL_OPS])
+	if (op == 'b' && ++ps->count[PB] && ++ps->count[TOTAL_OPS])
 		write(1, "pb\n", 3);
 }
 
