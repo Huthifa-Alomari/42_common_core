@@ -6,21 +6,26 @@
 /*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 19:07:23 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/03 19:09:16 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/03 19:44:16 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int num, char **arg)
+int	main(int argc, char **argv)
 {
 	t_ps	ps;
 
-	if (num < 2)
+	if (argc < 2)
 		return (0);
 	ft_bzero(&ps, sizeof(t_ps));
-	parse_args(ps, num, arg);
-	bench(ps);
+	parse_args(&ps, argc, argv);
+	ps.disorder = compute_disorder(ps.a);
+	if (ps.bench)
+		bench_print(&ps);
+	free_stack(&ps.a);
+	free_stack(&ps.b);
+	return (0);
 }
 
 /*
