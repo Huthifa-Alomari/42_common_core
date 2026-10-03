@@ -6,7 +6,7 @@
 /*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 19:07:23 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/03 13:49:00 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/03 16:42:37 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ int	main(int num, char **arg)
 
 	if (num < 2)
 		return (0);
-	ps = {0};
+	ft_bzero(&ps, sizeof(t_ps));
 	parse_args(ps, num, arg);
-
+	
 	//TODO
 	// Benchmake
 }

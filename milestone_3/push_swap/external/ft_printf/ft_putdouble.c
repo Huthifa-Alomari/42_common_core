@@ -6,7 +6,7 @@
 /*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 19:29:36 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/02 19:35:22 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/03 16:33:45 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 int	ft_putdouble(double nb)
 {
-	long	int_part;
-	double	frac_part;
-	int		precision;
+	long	i;
+	int		len;
 
-	precision = 6;
+	len = 0;
 	if (nb < 0)
 	{
-		ft_putchar('-');
+		len += ft_putchar('-');
 		nb = -nb;
 	}
-	int_part = (long)nb;
-	frac_part = nb - (double)int_part;
-	ft_putnbr(int_part);
-	ft_putchar('.');
-	while (precision--)
+	i = (long)nb;
+	ft_putnbr(i);
+	while (i >= 10 && (i /= 10))
+		len++;
+	len += ft_putchar('.');
+	i = 6;
+	while (i--)
 	{
-		frac_part *= 10;
-		ft_putchar((int)frac_part + '0');
-		frac_part -= (int)frac_part;
+		nb = (nb - (long)nb) * 10;
+		len += ft_putchar((int)nb + '0');
 	}
-	return (0);
+	return (len + 1);
 }
