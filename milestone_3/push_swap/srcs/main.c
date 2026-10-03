@@ -6,20 +6,23 @@
 /*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 19:07:23 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/02 21:31:45 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/03 13:49:00 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	main(int num, char **arg)
 {
 	t_ps	ps;
 
-	if (argc < 2)
+	if (num < 2)
 		return (0);
 	ps = {0};
-	parse_args(ps, argc, argv);
+	parse_args(ps, num, arg);
+
+	//TODO
+	// Benchmake
 }
 
 /*

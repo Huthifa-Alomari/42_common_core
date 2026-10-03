@@ -6,28 +6,30 @@
 /*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 20:56:18 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/02 22:06:26 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/03 16:10:51 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	parse_args(t_ps ps, int argc, char **argv)
+void	parse_args(t_ps *ps, int num, char **arg)
 {
 	int	i;
+	int	ok;
 
 	i = 1;
-	while (i < argc)
+	ok = 2;
+	ps->strategy = ADAPTIVE;
+	while (i < num)
 	{
-		// "1 2 3 4 5" ???
-		// 
-		if (argv[i][0] == '-' && argv[i][1] == '-')
-			parse_flags(&argv[i]);
-		else if (argv[i] == ft_isdigit(argv[i]))
-			parse_number(&argv[i]);
-		else if (argv[i] == ft_isalpha(argv[i]))
-			error(argv[i]);
-		// 
+		if (arg[i][0] == '-' && arg[i][1] == '-')
+			parse_flags(arg[i], ps, &ok);
+		else
+		{
+			ok = 0;
+			parse_number(&arg[i]);
+		}
 		i++;
 	}
 }
+./aout -flag "1 2 a 4 5"

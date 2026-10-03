@@ -6,14 +6,28 @@
 /*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 20:56:28 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/02 22:08:19 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/03 15:30:39 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	parse_flags(char *flag)
+void	parse_flags(char *flag, t_ps *ps, int *ok)
 {
-	// 1) From flags 
-	// 2) if two flags , one of them should be --bench 
+	flag += 2;
+	if (ok == 0)
+		error(ps);
+	if (!ft_strcmp(flag, "adaptive"))
+		ps->strategy = ADAPTIVE;
+	else if (!ft_strcmp(flag, "simple"))
+		ps->strategy = SIMPLE;
+	else if (!ft_strcmp(flag, "medium"))
+		ps->strategy = MEDIUM;
+	else if (!ft_strcmp(flag, "complex"))
+		ps->strategy = COMPLEX;
+	else if (!ft_strcmp(flag, "bench"))
+		ps->bench = 1;
+	else
+		error(ps);
+	*ok--;
 }

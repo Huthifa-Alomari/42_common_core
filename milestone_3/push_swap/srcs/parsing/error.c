@@ -6,13 +6,15 @@
 /*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 20:56:07 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/02 22:05:31 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/03 14:48:19 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	error(char *error)
+void	error(t_ps *ps)
 {
-
+	//free
+	ft_printf("Error\n");
+	exit(EXIT_FAILURE);
 }
