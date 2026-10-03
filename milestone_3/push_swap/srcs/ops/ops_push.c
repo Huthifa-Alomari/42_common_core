@@ -6,7 +6,7 @@
 /*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 19:05:50 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/03 19:46:25 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/03 21:30:34 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,12 @@ static void	op_print(t_ps *ps, char op)
 	if (op == 'a')
 	{
 		ps->count[SA]++;
-		write(1, "sa\n", 3);
+		write(1, "pa\n", 3);
 	}
 	else if (op == 'b')
 	{
 		ps->count[SB]++;
-		write(1, "sb\n", 3);
-	}
-	else if (op == 's')
-	{
-		ps->count[SS]++;
-		write(1, "ss\n", 3);
+		write(1, "pb\n", 3);
 	}
 }
 

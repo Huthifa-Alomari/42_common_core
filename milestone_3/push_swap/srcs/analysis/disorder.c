@@ -6,7 +6,7 @@
 /*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 15:27:05 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/03 15:27:18 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/03 21:27:25 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ double	compute_disorder(t_node *stack)
 	t_node	*j;
 	double	mistakes;
 	double	total_pairs;
-	int		size;
+	long	size;
 
 	size = stack_size(stack);
 	if (size < 2)

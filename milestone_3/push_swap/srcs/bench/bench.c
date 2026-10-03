@@ -6,7 +6,7 @@
 /*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 18:16:21 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/03 19:50:29 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/03 21:25:43 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	bench_print(t_ps *ps)
 	ft_printf("[bench] disorder: %.2f%%\n", ps->disorder);
 	ft_printf("[bench] strategy: %s / %s\n",
 		strategy[ps->strategy], bigo[ps->strategy]);
-	ft_printf("[bench] total_ops: %d\n", ps->count);
+	ft_printf("[bench] total_ops: %d\n", total_ops(ps));
 	ft_printf("[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n",
 		ps->count[SA], ps->count[SB], ps->count[SS],
 		ps->count[PA], ps->count[PB]);
