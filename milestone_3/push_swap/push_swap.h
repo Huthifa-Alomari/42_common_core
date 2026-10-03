@@ -6,7 +6,7 @@
 /*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 16:40:27 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/03 21:27:59 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/03 21:40:20 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct s_ps
 	t_node		*b;
 	int			bench;
 	double		disorder;
+	t_strategy	used;
 	t_strategy	strategy;
 	int			count[TOTAL_OPS];
 }	t_ps;
