@@ -6,13 +6,20 @@
 /*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 20:56:25 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/02 22:09:22 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/03 16:23:39 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	parse_number(char *number)
+void	parse_number(char *arg, int *ok)
 {
-	// read the number 
+	// split ==> is_digit ==> atoi ==> add front
+	char	**res;
+
+	res = ft_split(arg,' ');
+	while (res[i])
+	{
+		ft_atoi(res[i++]);
+	}
 }
