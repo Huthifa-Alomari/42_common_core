@@ -6,11 +6,26 @@
 /*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 18:16:21 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/03 19:08:15 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/03 19:50:29 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static int	total_ops(t_ps *ps)
+{
+	int	i;
+	int	total;
+
+	i = 0;
+	total = 0;
+	while (i < TOTAL_OPS)
+	{
+		total += ps->count[i];
+		i++;
+	}
+	return (total);
+}
 
 void	bench_print(t_ps *ps)
 {
