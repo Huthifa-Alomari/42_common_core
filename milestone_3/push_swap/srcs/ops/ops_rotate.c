@@ -6,7 +6,7 @@
 /*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 19:06:55 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/02 17:53:24 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/03 16:46:40 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,6 @@ void	op_rotate(t_ps *ps, char op)
 		rotate(&ps->a);
 	if (op == 'b' || op == 'r')
 		rotate(&ps->b);
-	op_print(ps, op);
+	if (!ps->a || !ps->a->next || !ps->b || !ps->b->next)
+		op_print(ps, op);	
 }

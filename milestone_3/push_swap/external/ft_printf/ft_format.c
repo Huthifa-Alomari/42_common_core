@@ -6,7 +6,7 @@
 /*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/19 22:23:48 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/09/21 17:30:53 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/03 16:37:28 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ int	ft_format(va_list args, const char specifier)
 		len += ft_puthex(va_arg(args, unsigned int), specifier);
 	else if (specifier == 'p')
 		len += ft_putptr(va_arg(args, void *));
+	else if (specifier == 'f')
+		len += ft_putdouble(va_arg(args, double));
 	else if (specifier == '%')
 		len += write(1, "%", 1);
 	return (len);

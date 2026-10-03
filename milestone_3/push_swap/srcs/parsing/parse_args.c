@@ -6,7 +6,7 @@
 /*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 20:56:18 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/03 16:10:51 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/03 16:28:54 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,3 @@ void	parse_args(t_ps *ps, int num, char **arg)
 		i++;
 	}
 }
-./aout -flag "1 2 a 4 5"
