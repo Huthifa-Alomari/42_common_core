@@ -6,7 +6,7 @@
 /*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 16:40:27 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/03 15:39:47 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/03 18:13:45 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include "libft/libft.h"
-# include "ft_printf/ft_printf.h"
+# include "libft.h"
+# include "ft_printf.h"
 
 typedef enum e_op
 {
