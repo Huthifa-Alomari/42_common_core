@@ -3,28 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
+/*   By: ayhshala <ayham.shalabi@learner.42.tech    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/02 20:56:07 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/03 17:01:10 by hal-omar         ###   ########.fr       */
+/*   Created: 2026/10/02 20:56:07 by ayhshala          #+#    #+#             */
+/*   Updated: 2026/10/04 22:04:52 by ayhshala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	free_stack(t_node **stack)
-{
-	t_node	*tmp;
-
-	if (!stack)
-		return ;
-	while (*stack)
-	{
-		tmp = (*stack)->next;
-		free(*stack);
-		*stack = tmp;
-	}
-}
 
 void	error(t_ps *ps)
 {
