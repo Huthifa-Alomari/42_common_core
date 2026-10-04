@@ -36,7 +36,7 @@ static void	add_number(char *str, char **res, t_ps *ps)
 		error(ps);
 	}
 	err = 0;
-	num = parse_atoi(str, &err);
+	val = parse_atoi(str, &err);
 	if (err || is_duplicate(ps->a, (int)num))
 	{
 		free_split(res);
