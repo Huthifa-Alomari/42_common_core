@@ -12,10 +12,27 @@
 
 #include "push_swap.h"
 
+void	free_stack(t_node **stack)
+{
+	t_node	*tmp;
+
+	if (!stack)
+		return ;
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
+}
+
 void	error(t_ps *ps)
 {
-	//free
-	ft_printf("Error\n");
+	if (ps)
+	{
+		free_stack(&ps->a);
+		free_stack(&ps->b);
+	}
+	write(2, "Error\n", 6);
 	exit(EXIT_FAILURE);
 }
-	
