@@ -12,14 +12,10 @@
 
 #include "push_swap.h"
 
-
-#include "push_swap.h"
-
-/* Helper to free the array returned by ft_split */
-void	free_split(char **res)
+static void	free_split(char **res)
 {
 	int	i;
-
+	
 	if (!res)
 		return ;
 	i = 0;
@@ -28,25 +24,25 @@ void	free_split(char **res)
 	free(res);
 }
 
-static void	process_token(char *token, char **res, t_ps *ps)
+static void	add_number(char *str, char **res, t_ps *ps)
 {
 	int		err;
-	long	val;
+	long	num;
 	t_node	*node;
 
+	if (!is_valid_syntax(str))
+	{
+		free_split(res);
+		error(ps);
+	}
 	err = 0;
-	if (!is_valid_syntax(token))
+	num = parse_atoi(str, &err);
+	if (err || is_duplicate(ps->a, (int)num))
 	{
 		free_split(res);
 		error(ps);
 	}
-	val = parse_atol(token, &err);
-	if (err || is_duplicate(ps->a, (int)val))
-	{
-		free_split(res);
-		error(ps);
-	}
-	node = new_node((int)val);
+	node = new_node((int)num);
 	if (!node)
 	{
 		free_split(res);
@@ -68,9 +64,6 @@ void	parse_number(char *arg, t_ps *ps)
 	}
 	i = 0;
 	while (res[i])
-	{
-		process_token(res[i], res, ps);
-		i++;
-	}
+		add_number(res[i++], res, ps);
 	free_split(res);
 }
