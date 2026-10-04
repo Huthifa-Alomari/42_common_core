@@ -6,7 +6,7 @@
 #    By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/20 20:00:10 by hal-omar          #+#    #+#              #
-#    Updated: 2026/10/02 19:34:47 by hal-omar         ###   ########.fr        #
+#    Updated: 2026/10/04 14:19:12 by hal-omar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRCS    = ft_printf.c \
             ft_putunsigned.c \
             ft_puthex.c \
             ft_putptr.c \
-            ft_putdouble
+            ft_putdouble.c
 
 OBJS    = $(SRCS:.c=.o)
 

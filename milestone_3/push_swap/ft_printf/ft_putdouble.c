@@ -6,33 +6,34 @@
 /*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 19:29:36 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/03 18:59:50 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/04 14:17:15 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putdouble(double nb)
+int	ft_putdouble(double nb, int fd)
 {
-	long	i;
+	long	int_part;
 	int		len;
+	int		i;
 
 	len = 0;
 	if (nb < 0)
 	{
-		len += ft_putchar('-');
+		len += ft_putchar('-', fd);
 		nb = -nb;
 	}
-	i = (long)nb;
-	ft_putnbr(i);
-	while (i >= 10 && (i /= 10))
-		len++;
-	len += ft_putchar('.');
-	i = 6;
+	int_part = (long)nb;
+	len += ft_putnbr(int_part, fd);
+	len += ft_putchar('.', fd);
+	nb = nb - int_part;
+	i = 2;
 	while (i--)
 	{
-		nb = (nb - (long)nb) * 10;
-		len += ft_putchar((int)nb + '0');
+		nb = nb * 10;
+		len += ft_putchar((int)nb + '0', fd);
+		nb = nb - (int)nb;
 	}
-	return (len + 1);
+	return (len);
 }
