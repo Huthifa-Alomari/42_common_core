@@ -10,9 +10,3 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void	parse_validate(char *valid)
-{
-	// No duplicate 
-}
