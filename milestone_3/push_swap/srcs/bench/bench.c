@@ -6,7 +6,7 @@
 /*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 18:16:21 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/03 21:35:01 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/04 14:12:01 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,29 +27,27 @@ static int	total_ops(t_ps *ps)
 	return (total);
 }
 
+static char	*strategy_name(t_strategy strategy)
+{
+	if (strategy == SIMPLE)
+		return ("Simple");
+	if (strategy == MEDIUM)
+		return ("Medium");
+	if (strategy == COMPLEX)
+		return ("Complex");
+	return ("Adaptive");
+}
+
 void	bench_print(t_ps *ps)
 {
-	const char	*strategy[4] = {
-		"Adaptive",
-		"Simple",
-		"Medium",
-		"Complex"
-	};
-	const char	*bigo[4] = {
-		"O(n^2)",
-		"O(n^2)",
-		"O(n√n)",
-		"O(nlogn)"
-	};
-
-	ft_printf("[bench] disorder: %.2f%%\n", ps->disorder);
-	ft_printf("[bench] strategy: %s / %s\n",
-		strategy[ps->strategy], bigo[ps->strategy]);
-	ft_printf("[bench] total_ops: %d\n", total_ops(ps));
-	ft_printf("[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n",
+	ft_dprintf(2, "[bench] disorder: %f%%\n", ps->disorder * 100);
+	ft_dprintf(2, "[bench] strategy: %s / %s\n",
+		strategy_name(ps->strategy), ps->strategy_chosen);
+	ft_dprintf(2, "[bench] total_ops: %d\n", total_ops(ps));
+	ft_dprintf(2, "[bench] sa: %d sb: %d ss: %d pa: %d pb: %d\n",
 		ps->count[SA], ps->count[SB], ps->count[SS],
 		ps->count[PA], ps->count[PB]);
-	ft_printf("[bench] ra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n",
+	ft_dprintf(2, "[bench] ra: %d rb: %d rr: %d rra: %d rrb: %d rrr: %d\n",
 		ps->count[RA], ps->count[RB], ps->count[RR],
 		ps->count[RRA], ps->count[RRB], ps->count[RRR]);
 }

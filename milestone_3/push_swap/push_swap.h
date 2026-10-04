@@ -6,7 +6,7 @@
 /*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 16:40:27 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/03 21:40:20 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/04 13:51:58 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ typedef struct s_ps
 	t_node		*b;
 	int			bench;
 	double		disorder;
-	t_strategy	used;
+	char		*strategy_chosen;
 	t_strategy	strategy;
 	int			count[TOTAL_OPS];
 }	t_ps;
@@ -64,13 +64,13 @@ void	op_swap(t_ps *ps, char op);
 void	op_push(t_ps *ps, char op);
 void	op_rotate(t_ps *ps, char op);
 void	op_reverse(t_ps *ps, char op);
-void	parse_args(t_ps *ps, int argc, char **argv);
-void	parse_flags(t_ps *ps, char *flag);
+void	parse_args(t_ps *ps, int num, char **arg);
+void	parse_flags(char *flag, t_ps *ps, int *allowd_flags);
 int		parse_number(char *str, int *value);
 int		is_duplicate(t_node *stack, int value);
 int		add_back(t_node **stack, int value);
 void	free_stack(t_node **stack);
-void	error_exit(t_ps *ps, char **words);
+void	error(t_ps *ps);
 void	free_split(char **words);
 int		stack_size(t_node *stack);
 double	compute_disorder(t_node *stack);
