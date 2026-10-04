@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parse_number.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
+/*   By: ayhshala <ayham.shalabi@learner.42.tech    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/10/02 20:56:25 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/03 16:23:39 by hal-omar         ###   ########.fr       */
+/*   Created: 2026/10/02 20:56:25 by ayhshala          #+#    #+#             */
+/*   Updated: 2026/10/04 22:03:10 by ayhshala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	add_number(char *str, char **res, t_ps *ps)
 		error(ps);
 	}
 	err = 0;
-	num = parse_atoi(str, &err);
+	num = parse_atol(str, &err);
 	if (err || is_duplicate(ps->a, (int)num))
 	{
 		free_split(res);
