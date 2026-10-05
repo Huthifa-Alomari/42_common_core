@@ -6,7 +6,7 @@
 /*   By: ayhshala <ayham.shalabi@learner.42.tech    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 19:06:51 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/05 16:41:23 by ayhshala         ###   ########.fr       */
+/*   Updated: 2026/10/05 16:53:54 by ayhshala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,6 @@ void	op_reverse(t_ps *ps, char op)
 		op_print(ps, 'a');
 	else if (rr == 2)
 		op_print(ps, 'b');
-	else if (rr = 3)
+	else if (rr == 3)
 		op_print(ps, 's');
 }
