@@ -6,7 +6,7 @@
 /*   By: ayhshala <ayham.shalabi@learner.42.tech    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 20:56:25 by ayhshala          #+#    #+#             */
-/*   Updated: 2026/10/04 22:03:10 by ayhshala         ###   ########.fr       */
+/*   Updated: 2026/10/05 17:00:21 by ayhshala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	free_split(char **res)
 {
 	int	i;
-	
+
 	if (!res)
 		return ;
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: ayhshala <ayham.shalabi@learner.42.tech    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 20:56:10 by ayhshala          #+#    #+#             */
-/*   Updated: 2026/10/04 22:03:38 by ayhshala         ###   ########.fr       */
+/*   Updated: 2026/10/05 17:00:31 by ayhshala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ long	parse_atol(char *str, int *err)
 	while (str[i])
 	{
 		res = res * 10 + (str[i] - '0');
-		if ((sign == 1 && res > 2147483647L) || (sign == -1 && res > 2147483648L))
+		if ((sign == 1 && res > 2147483647L)
+			|| (sign == -1 && res > 2147483648L))
 		{
 			*err = 1;
 			return (0);
