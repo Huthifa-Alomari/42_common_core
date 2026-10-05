@@ -128,5 +128,5 @@ void	op_reverse(t_ps *ps, char op)
 	else if (rr == 2)
 		op_print(ps, 'b');
 	else if (rr == 3)
-		op_print(ps, 's');
+		op_print(ps, 'r');
 }
