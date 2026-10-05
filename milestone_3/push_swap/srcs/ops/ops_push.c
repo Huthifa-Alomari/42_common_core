@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ops_push.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
+/*   By: ayhshala <ayham.shalabi@learner.42.tech    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 19:05:50 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/03 21:32:38 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/05 16:41:22 by ayhshala         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,33 @@ static void	op_print(t_ps *ps, char op)
 	}
 }
 
-void	op_push(t_ps *ps, char op)
+static void	push(t_node **from_stack, t_node **to_stack)
 {
 	t_node	*tmp;
 
+	tmp = *from_stack;
+	*from_stack = (*from_stack)->next;
+	tmp->next = *to_stack;
+	*to_stack = tmp;
+}
+
+/*
+code logic:
+op = a: prints "pa\n" only if stack_b had >= 1 nods.
+op = b: prints "pb\n" only if stack_a had >= 1 nods.
+op = random: does not print any thing;
+*/
+
+void	op_push(t_ps *ps, char op)
+{
 	if (op == 'a' && ps->b)
 	{
-		tmp = ps->b;
-		ps->b = ps->b->next;
-		tmp->next = ps->a;
-		ps->a = tmp;
+		push(&ps->b, &ps->a);
 		op_print(ps, op);
 	}
 	else if (op == 'b' && ps->a)
 	{
-		tmp = ps->a;
-		ps->a = ps->a->next;
-		tmp->next = ps->b;
-		ps->b = tmp;
+		push(&ps->a, &ps->b);
 		op_print(ps, op);
 	}
 }
