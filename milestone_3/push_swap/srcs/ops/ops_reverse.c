@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ops_reverse.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayhshala <ayham.shalabi@learner.42.tech    +#+  +:+       +#+        */
+/*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 19:06:51 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/05 16:53:54 by ayhshala         ###   ########.fr       */
+/*   Updated: 2026/10/06 13:49:42 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ if:
 	ps->b = NULL
 }
 it will not reverse rotate stack_a and will not print any thing because stack_b < 2 node.
-*/
 
 void	op_reverse(t_ps *ps, char op)
 {
@@ -87,8 +86,7 @@ void	op_reverse(t_ps *ps, char op)
 		op_print(ps, op);
 	}
 }
-
-/*
+------------------
 code logic:
 op = a: prints "rra\n" only if stack_a was reverse rotated.
 op = b: prints "rrb\n" only if stack_b was reverse rotated.
