@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ops_swap.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ayhshala <ayham.shalabi@learner.42.tech    +#+  +:+       +#+        */
+/*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 16:36:39 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/05 16:41:21 by ayhshala         ###   ########.fr       */
+/*   Updated: 2026/10/06 13:49:53 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ if:
 	ps->b = NULL
 }
 it will not swap stack_a and will not print any thing because stack_b < 2 node.
-*/
 
 void	op_swap(t_ps *ps, char op)
 {
@@ -80,8 +79,7 @@ void	op_swap(t_ps *ps, char op)
 		op_print(ps, op);
 	}
 }
-
-/*
+------------------ 
 code logic:
 op = a: prints "sa\n" only if stack_a was swapped.
 op = b: prints "sb\n" only if stack_b was swapped.
