@@ -6,7 +6,7 @@
 /*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 16:40:27 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/04 13:51:58 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/07 19:01:31 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,17 @@ void	op_rotate(t_ps *ps, char op);
 void	op_reverse(t_ps *ps, char op);
 void	parse_args(t_ps *ps, int num, char **arg);
 void	parse_flags(char *flag, t_ps *ps, int *allowd_flags);
-int		parse_number(char *str, int *value);
-int		is_duplicate(t_node *stack, int value);
-int		add_back(t_node **stack, int value);
-void	free_stack(t_node **stack);
+void	parse_number(char *arg, t_ps *ps);
+int		is_valid_syntax(char *str);
+int		is_duplicate(t_node *stack, int val);
+long	parse_atol(char *str, int *err);
 void	error(t_ps *ps);
-void	free_split(char **words);
+t_node	*new_node(int value);
+void	stack_add_bottom(t_node **stack, t_node *node);
+void	free_stack(t_node **stack);
 int		stack_size(t_node *stack);
 double	compute_disorder(t_node *stack);
 void	bench_print(t_ps *ps);
+void	sort_simple(t_ps *ps);
 
 #endif
