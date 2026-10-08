@@ -6,7 +6,7 @@
 /*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 21:34:08 by ayhshala          #+#    #+#             */
-/*   Updated: 2026/10/08 22:30:26 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/08 22:46:47 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,13 @@
 
 int		is_sorted(t_node *stack)
 {
-	// TODO
+	while (stack && stack->next)
+	{
+		if (stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
 }
 
 t_node	*new_node(int value)
