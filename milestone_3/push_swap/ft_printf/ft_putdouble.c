@@ -6,7 +6,7 @@
 /*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/02 19:29:36 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/08 20:58:55 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/08 22:43:13 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	ft_putdouble(double nb, int fd)
 		len += ft_putchar('-', fd);
 		nb = -nb;
 	}
+	nb += 0.005;
 	int_part = (long)nb;
 	len += ft_putnbr(int_part, fd);
 	len += ft_putchar('.', fd);
