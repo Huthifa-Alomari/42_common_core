@@ -6,7 +6,13 @@
 /*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 21:33:18 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/08 22:59:57 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/08 23:44:53 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
+void	sort_complex(t_ps *ps)
+{
+	sort_medium(ps);
+}
