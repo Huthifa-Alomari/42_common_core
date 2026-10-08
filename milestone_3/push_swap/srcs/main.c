@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
+/*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 19:07:23 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/07 19:08:39 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/08 21:38:11 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ int	main(int argc, char **argv)
 		return (0);
 	ft_bzero(&ps, sizeof(t_ps));
 	parse_args(&ps, argc, argv);
-	// normalize_ranks(ps);
+	normalize_ranks(ps.a);
+	ps.disorder = compute_disorder(ps.a);
+	run_strategy(&ps);
 	ps.disorder = compute_disorder(ps.a);
 	if (ps.bench)
 		bench_print(&ps);

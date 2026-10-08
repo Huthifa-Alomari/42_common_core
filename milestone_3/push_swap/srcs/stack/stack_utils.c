@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+        */
+/*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 21:34:08 by ayhshala          #+#    #+#             */
-/*   Updated: 2026/10/07 19:05:07 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/08 22:30:26 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int		is_sorted(t_node *stack)
+{
+	// TODO
+}
 
 t_node	*new_node(int value)
 {
