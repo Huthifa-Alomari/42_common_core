@@ -6,7 +6,7 @@
 #    By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/02 01:54:53 by hal-omar          #+#    #+#              #
-#    Updated: 2026/10/08 21:30:18 by hal-omar         ###   ########.fr        #
+#    Updated: 2026/10/08 22:53:28 by hal-omar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,6 @@ SRCS		= srcs/main.c \
 			  srcs/parsing/parse_number.c \
 			  srcs/parsing/parse_validate.c \
 			  srcs/parsing/error.c \
-			  srcs/stack/stack_init.c \
 			  srcs/stack/stack_utils.c \
 			  srcs/analysis/disorder.c \
 			  srcs/analysis/ranks.c \
@@ -37,7 +36,6 @@ SRCS		= srcs/main.c \
 			  srcs/sort/sort_simple.c \
 			  srcs/sort/sort_medium.c \
 			  srcs/sort/sort_complex.c \
-			  srcs/sort/sort_utils.c \
 			  srcs/bench/bench.c
 
 OBJS		= $(SRCS:.c=.o)

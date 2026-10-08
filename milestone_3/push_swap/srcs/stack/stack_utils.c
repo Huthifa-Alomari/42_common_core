@@ -6,13 +6,13 @@
 /*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/03 21:34:08 by ayhshala          #+#    #+#             */
-/*   Updated: 2026/10/08 22:46:47 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/08 22:59:32 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int		is_sorted(t_node *stack)
+int	is_sorted(t_node *stack)
 {
 	while (stack && stack->next)
 	{
@@ -79,4 +79,3 @@ int	stack_size(t_node *stack)
 	}
 	return (size);
 }
-
