@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hal-omar <hal-omar@student.42.tech>        +#+  +:+       +#+         #
+#    By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/02 01:54:53 by hal-omar          #+#    #+#              #
-#    Updated: 2026/10/03 19:41:30 by hal-omar         ###   ########.fr        #
+#    Updated: 2026/10/08 21:30:18 by hal-omar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,10 +34,8 @@ SRCS		= srcs/main.c \
 			  srcs/ops/ops_rotate.c \
 			  srcs/ops/ops_reverse.c \
 			  srcs/sort/strategy.c \
-			  srcs/sort/sort_small.c \
 			  srcs/sort/sort_simple.c \
 			  srcs/sort/sort_medium.c \
-			  srcs/sort/sort_medium_back.c \
 			  srcs/sort/sort_complex.c \
 			  srcs/sort/sort_utils.c \
 			  srcs/bench/bench.c

@@ -6,7 +6,7 @@
 /*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/30 16:40:27 by hal-omar          #+#    #+#             */
-/*   Updated: 2026/10/08 20:55:11 by hal-omar         ###   ########.fr       */
+/*   Updated: 2026/10/08 22:29:53 by hal-omar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ typedef struct s_ps
 	int			bench;
 	double		disorder;
 	char		*strategy_chosen;
+	int			strategy_set;
 	t_strategy	strategy;
 	int			count[TOTAL_OPS];
 }	t_ps;
@@ -77,6 +78,12 @@ void	free_stack(t_node **stack);
 int		stack_size(t_node *stack);
 double	compute_disorder(t_node *stack);
 void	bench_print(t_ps *ps);
+
 void	sort_simple(t_ps *ps);
+void	sort_medium(t_ps *ps);
+void	normalize_ranks(t_node *stack);
+int		is_sorted(t_node *stack);
+void	sort_complex(t_ps *ps);
+void	run_strategy(t_ps *ps);
 
 #endif
