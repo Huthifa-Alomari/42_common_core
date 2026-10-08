@@ -751,15 +751,3 @@ Both of us designed the data structures, the file layout and the adaptive rules 
 ### How we used AI
 
 We used an AI assistant (Claude) as a tutor and reviewer, and kept every design decision ourselves. Everything that came from it was read, traced by hand on paper, tested, and is understood by both of us.
-
-| Task | What the AI did | What we did |
-|---|---|---|
-| Understanding the subject | Explained the new requirements (disorder, strategies, bench) and drew the overall program flow | Read the subject, chose the design |
-| Planning | Proposed a roadmap, a file layout and a way to split the work between two people | Adapted it to our schedule and split |
-| C concepts | Explained `*` vs `**`, linked-list pointer updates, out-of-bounds array access, integer-only percentage maths | Wrote the operations and asked for reviews |
-| Git | Helped recover from a sparse-checkout mistake and a force-push, and explained branches and commits | Ran and checked every command |
-| Code review and debugging | Reviewed our functions, explained compiler and valgrind errors, pointed out bugs (wrong counters, a pointer used as a counter, a missing rounding step) | Fixed them ourselves |
-| Medium algorithm | Converted our chunk-sort pseudocode to our data structures, and ran simulations to compare window sizes (the chart and table above) | Traced it by hand, tested it, chose 1.4 from the measurements |
-| ft_printf extension | Explained how to add a file-descriptor parameter and two-decimal `%f` | Implemented and tested it |
-| Testing | Suggested test commands, error cases and a checker-style test | Ran all tests on our machines |
-| This README | Helped draft and structure it from our code and our measurements | Reviewed and corrected it |
