@@ -45,23 +45,6 @@ static void	rotate(t_node **stack)
 	first->next = NULL;
 }
 
-/*
-code logic:
-op = a: prints "ra\n" only if stack_a was rotated.
-op = b: prints "rb\n" only if stack_b was rotated.
-op = r: prints "rr\n" only if both stacks had >= 2 nodes.
-op = r: does not prints "ra\n" because stack_b < 2 node.
-op = r: does not prints "rb\n" because stack_a < 2 node.
-op = random: does not print any thing.
-
-if:
-{
-	op = r
-	ps->a = 1 2 3 4
-	ps->b = NULL
-}
-it will not rotate stack_a and will not print any thing because stack_b < 2 node.
-
 void	op_rotate(t_ps *ps, char op)
 {
 	if (!ps)
@@ -82,46 +65,4 @@ void	op_rotate(t_ps *ps, char op)
 		rotate(&ps->b);
 		op_print(ps, op);
 	}
-}
-------------------
-code logic:
-op = a: prints "ra\n" only if stack_a was rotated.
-op = b: prints "rb\n" only if stack_b was rotated.
-op = r: prints "rr\n" only if both stacks had >= 2 nodes.
-op = r: prints "ra\n" only if stack_a was rotated.
-op = r: prints "rb\n" only if stack_b was rotated.
-op = random: does not print any thing.
-
-if:
-{
-	op = r
-	ps->a = 1 2 3 4
-	ps->b = NULL
-}
-it will rotate stack_a and only prints "ra\n".
-*/
-
-void	op_rotate(t_ps *ps, char op)
-{
-	int	r;
-
-	r = 0;
-	if (!ps)
-		return ;
-	if ((op == 'a' || op == 'r') && ps->a && ps->a->next)
-	{
-		rotate(&ps->a);
-		r += 1;
-	}
-	if ((op == 'b' || op == 'r') && ps->b && ps->b->next)
-	{
-		rotate(&ps->b);
-		r += 2;
-	}
-	if (r == 1)
-		op_print(ps, 'a');
-	else if (r == 2)
-		op_print(ps, 'b');
-	else if (r == 3)
-		op_print(ps, 'r');
 }

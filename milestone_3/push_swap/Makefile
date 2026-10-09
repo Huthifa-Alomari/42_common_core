@@ -27,16 +27,15 @@ SRCS		= srcs/main.c \
 			  srcs/parsing/error.c \
 			  srcs/stack/stack_utils.c \
 			  srcs/analysis/disorder.c \
-			  srcs/analysis/ranks.c \
 			  srcs/ops/ops_swap.c \
 			  srcs/ops/ops_push.c \
 			  srcs/ops/ops_rotate.c \
 			  srcs/ops/ops_reverse.c \
-			  srcs/sort/strategy.c \
+			  srcs/sort/sort_adaptive.c \
 			  srcs/sort/sort_simple.c \
 			  srcs/sort/sort_medium.c \
 			  srcs/sort/sort_complex.c \
-			  srcs/bench/bench.c
+			  srcs/analysis/bench.c
 
 OBJS		= $(SRCS:.c=.o)
 

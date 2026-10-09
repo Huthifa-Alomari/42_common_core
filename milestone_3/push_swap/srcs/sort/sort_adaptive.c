@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strategy.c                                         :+:      :+:    :+:   */
+/*   sort_adaptive.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hal-omar <hal-omar@learner.42.tech>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -34,7 +34,7 @@ void	sort_adaptive(t_ps *ps)
 		ps->strategy_chosen = "O(n√n)";
 	else
 		ps->strategy_chosen = "O(n log n)";
-	if (is_sorted(ps->a))
+	if (ps->disorder == 0.0)
 		return ;
 	if (sort == SIMPLE)
 		sort_simple(ps);
