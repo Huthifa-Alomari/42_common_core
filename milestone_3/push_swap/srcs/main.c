@@ -20,9 +20,9 @@ int	main(int argc, char **argv)
 		return (0);
 	ft_bzero(ps, sizeof(t_ps));
 	parse_args(ps, argc, argv);
-	normalize_ranks(ps->a);
+	initialize_ranks(ps->a);
 	ps->disorder = compute_disorder(ps->a);
-	run_strategy(ps);
+	sort_adaptive(ps);
 	if (ps->bench)
 		bench_print(ps);
 	free_stack(ps->a);
