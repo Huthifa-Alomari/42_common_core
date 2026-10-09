@@ -79,3 +79,27 @@ int	stack_size(t_node *stack)
 	}
 	return (size);
 }
+
+#include "push_swap.h"
+
+void	initialize_ranks(t_node *stack)
+{
+	t_node	*curr;
+	t_node	*compare;
+	int		count;
+
+	curr = stack;
+	while (curr)
+	{
+		count = 0;
+		compare = stack;
+		while (compare)
+		{
+			if (compare->value < curr->value)
+				count++;
+			compare = compare->next;
+		}
+		curr->rank = count;
+		curr = curr->next;
+	}
+}

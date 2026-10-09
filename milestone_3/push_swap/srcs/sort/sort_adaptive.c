@@ -23,7 +23,7 @@ static t_strategy	pick_sort(t_ps *ps)
 	return (COMPLEX);
 }
 
-void	run_strategy(t_ps *ps)
+void	sort_adaptive(t_ps *ps)
 {
 	t_strategy	sort;
 
