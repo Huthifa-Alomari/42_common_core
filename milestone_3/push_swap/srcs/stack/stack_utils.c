@@ -12,17 +12,6 @@
 
 #include "push_swap.h"
 
-int	is_sorted(t_node *stack)
-{
-	while (stack && stack->next)
-	{
-		if (stack->value > stack->next->value)
-			return (0);
-		stack = stack->next;
-	}
-	return (1);
-}
-
 t_node	*new_node(int value)
 {
 	t_node	*node;
@@ -79,8 +68,6 @@ int	stack_size(t_node *stack)
 	}
 	return (size);
 }
-
-#include "push_swap.h"
 
 void	initialize_ranks(t_node *stack)
 {

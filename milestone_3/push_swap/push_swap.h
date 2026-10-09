@@ -82,7 +82,6 @@ void	bench_print(t_ps *ps);
 void	sort_simple(t_ps *ps);
 void	sort_medium(t_ps *ps);
 void	initialize_ranks(t_node *stack);
-int		is_sorted(t_node *stack);
 void	sort_complex(t_ps *ps);
 void	sort_adaptive(t_ps *ps);
 

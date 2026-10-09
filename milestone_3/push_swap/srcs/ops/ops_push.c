@@ -36,13 +36,6 @@ static void	push(t_node **from_stack, t_node **to_stack)
 	*to_stack = tmp;
 }
 
-/*
-code logic:
-op = a: prints "pa\n" only if stack_b had >= 1 nods.
-op = b: prints "pb\n" only if stack_a had >= 1 nods.
-op = random: does not print any thing;
-*/
-
 void	op_push(t_ps *ps, char op)
 {
 	if (op == 'a' && ps->b)
