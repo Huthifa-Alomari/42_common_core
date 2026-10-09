@@ -212,22 +212,21 @@ push_swap/
     │   ├── parse_validate.c syntax check, safe atol, duplicate check
     │   └── error.c          single error exit: free, print, exit
     ├── stack/
-    │   └── stack_utils.c    new_node, stack_add_bottom, free_stack, stack_size, is_sorted
+    │   └── stack_utils.c    new_node, stack_add_bottom, free_stack, stack_size,
+    │                        initialize_ranks (values -> ranks 0..n-1)
     ├── analysis/
-    │   ├── ranks.c          values -> ranks 0..n-1
-    │   └── disorder.c       the disorder metric
+    │   ├── disorder.c       the disorder metric
+    │   └── bench.c          --bench report on stderr
     ├── ops/
     │   ├── ops_swap.c       sa sb ss
     │   ├── ops_push.c       pa pb
     │   ├── ops_rotate.c     ra rb rr
     │   └── ops_reverse.c    rra rrb rrr
-    ├── sort/
-    │   ├── strategy.c       picks the algorithm, sets the complexity label
-    │   ├── sort_simple.c    O(n²)
-    │   ├── sort_medium.c    O(n√n)
-    │   └── sort_complex.c   O(n log n)
-    └── bench/
-        └── bench.c          --bench report on stderr
+    └── sort/
+        ├── sort_adaptive.c  picks the algorithm (flag or disorder), sets the label
+        ├── sort_simple.c    O(n²)
+        ├── sort_medium.c    O(n√n)
+        └── sort_complex.c   O(n log n)
 ```
 
 Each folder has one responsibility. The sorting algorithms never touch the list pointers directly: they only call the operation functions, which is why the operation counts in `--bench` are always exact.
@@ -302,9 +301,9 @@ flowchart TD
     B -- no --> C["ft_bzero(ps)"]
     C --> D["parse_args: flags, then numbers"]
     D -- invalid input --> E["error(): free stacks, 'Error' on stderr, exit(1)"]
-    D -- ok --> F["normalize_ranks(a)"]
+    D -- ok --> F["initialize_ranks(a)"]
     F --> G["compute_disorder(a), before any move"]
-    G --> H["run_strategy(ps)"]
+    G --> H["sort_adaptive(ps)"]
     H --> I{"--bench?"}
     I -- yes --> J["bench_print() on stderr"]
     I -- no --> K
@@ -312,11 +311,11 @@ flowchart TD
     K --> L["return 0"]
 ```
 
-Inside `run_strategy`:
+Inside `sort_adaptive` (it runs for every strategy; a flag simply skips the disorder test):
 
 ```mermaid
 flowchart TD
-    S["run_strategy(ps)"] --> P{"strategy flag given?"}
+    S["sort_adaptive(ps)"] --> P{"strategy flag given?"}
     P -- "--simple / --medium / --complex" --> Q["use that algorithm"]
     P -- "no flag or --adaptive" --> R{"disorder"}
     R -- "< 0.2" --> R1["simple"]
@@ -326,12 +325,14 @@ flowchart TD
     R1 --> T
     R2 --> T
     R3 --> T
-    T --> U{"is_sorted(a)?"}
+    T --> U{"disorder == 0?"}
     U -- yes --> V["return, no moves"]
     U -- no --> W["run the sort"]
 ```
 
 The label is set **before** the sorted check, so `--bench` on an already sorted input still prints a valid strategy line.
+
+**Sorted check:** a stack is sorted exactly when it has no inversions, so we reuse the disorder already computed instead of walking the list again. A disorder of 0 is always exactly `0.0` (0 mistakes divided by the number of pairs, or the explicit `0.0` returned for fewer than 2 numbers), so comparing it with `0.0` is safe.
 
 ### The operations layer
 
@@ -389,7 +390,7 @@ values: 42  -7  900  15
 ranks :  2   0    3   1
 ```
 
-`normalize_ranks` counts, for each node, how many values are smaller than it. This is O(n²) CPU time and O(1) extra memory, which is fine for 500 numbers.
+`initialize_ranks` (in `stack_utils.c`) counts, for each node, how many values are smaller than it. This is O(n²) CPU time and O(1) extra memory, which is fine for 500 numbers.
 
 Ranks make every algorithm simpler:
 
@@ -398,7 +399,7 @@ Ranks make every algorithm simpler:
 - The chunk sort can talk about windows of ranks ("ranks 0 to 29 first").
 - Radix sort needs non-negative integers with a known number of bits.
 
-`value` is kept for the disorder metric, the sorted check and the duplicate check.
+`value` is kept for the disorder metric (and so for the sorted check) and for the duplicate check.
 
 ---
 
@@ -525,7 +526,7 @@ In the code, the window is `int_sqrt(size) * 1.4`, converted to an integer.
 
 **Idea:** sort the ranks one bit at a time, starting from the least significant bit (LSD). For each bit, every number whose bit is 0 goes to b and every number whose bit is 1 stays in a; then everything comes back. After the last bit, a is sorted.
 
-**Steps** (`sort_complex.c`):
+**Steps** (`sort_complex.c`; `get_max_bits` computes the number of bits):
 
 ```
 bits = number of bits needed for (n - 1)
@@ -721,14 +722,14 @@ Both of us designed the data structures, the file layout and the adaptive rules 
 | Parsing: flags, numbers, syntax, overflow, duplicates | | ✔ |
 | Error handling and memory cleanup | | ✔ |
 | Stack utilities (`new_node`, `stack_add_bottom`, `free_stack`, `stack_size`) | | ✔ |
-| `is_sorted` | ✔ | |
-| Rank normalization | ✔ (integration) | ✔ (algorithm) |
+| Rank normalization (`initialize_ranks`) | ✔ (integration) | ✔ (algorithm, final placement) |
 | Disorder metric | ✔ | |
 | Simple sort, O(n²) | | ✔ |
 | Medium chunk sort, O(n√n), and window tuning | ✔ | |
 | Complex radix sort, O(n log n) | | ✔ |
-| Strategy dispatcher (`run_strategy`, adaptive thresholds) | ✔ | |
+| Strategy dispatcher (`sort_adaptive`, adaptive thresholds) | ✔ | ✔ (sorted check through the disorder, final naming) |
 | Bench mode, `ft_dprintf` and `%f` in ft_printf | ✔ | |
+| Final integration and cleanup (file moves, renames, removing old code) | | ✔ |
 | Testing, benchmarks, README | ✔ | ✔ |
 
 ---
@@ -750,4 +751,7 @@ Both of us designed the data structures, the file layout and the adaptive rules 
 
 ### How we used AI
 
-We used an AI assistant (Claude) as a tutor and reviewer, and kept every design decision ourselves. Everything that came from it was read, traced by hand on paper, tested, and is understood by both of us.
+We used an AI assistant (Claude). Everything that came from it was read, traced by hand on paper, tested, and is understood by both of us.
+
+
+
