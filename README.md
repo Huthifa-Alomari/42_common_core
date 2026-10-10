@@ -1,19 +1,8 @@
 # 42 Common Core
 
-
-
-![Language: C](https://img.shields.io/badge/language-C-00599C?logo=c&logoColor=white)
-
-
-
-
-![Norminette](https://img.shields.io/badge/norminette-passing-success)
-
-
-
-![License: MIT](https://img.shields.io/badge/license-MIT-blue)
-
-(LICENSE)
+[![Language: C](https://img.shields.io/badge/language-C-00599C?logo=c&logoColor=white)](#)
+[![Norminette](https://img.shields.io/badge/norminette-passing-success)](https://github.com/42School/norminette)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
 My projects from the **Common Core** curriculum at [42](https://42.fr), written in C.
 
@@ -25,7 +14,7 @@ Every project follows the 42 rules: code must pass the [Norm](https://github.com
 |:---------:|----------|:------:|
 | 1 | [**libft**](milestone_1/libft): my own C library: libc functions (`strlen`, `memcpy`, `atoi`…), string helpers (`split`, `itoa`…) and linked lists | ✅ |
 | 2 | [**ft_printf**](milestone_2/ft_printf): a re-implementation of `printf` using variadic arguments<br>[**get_next_line**](milestone_2/get_next_line): reads a file descriptor one line at a time using a `static` buffer | ✅ |
-| 3 | [**push_swap**](milestone_3/push_swap): sorts numbers using two stacks and a limited set of operations | 🚧 In progress |
+| 3 | [**push_swap**](milestone_3/push_swap): sorts numbers using two stacks and a limited set of operations (team project with [Ayham](https://github.com/AYHAM_GITHUB)) | ✅ |
 
 Each project has its own README explaining how it works and how to use it.
 

@@ -355,7 +355,7 @@ sequenceDiagram
 Rules shared by all operation files:
 
 - **An operation that cannot move anything prints nothing and counts nothing** (for example `sa` on a stack of one node, or `pa` when b is empty).
-- **Combined operations degrade gracefully.** `rr` with only stack a able to rotate rotates a and prints `ra`, not `rr`. The printed line always describes exactly what happened, so the checker and the counters always agree.
+- **Combined operations are strict.** `ss`, `rr` and `rrr` run only when both stacks can move; otherwise nothing happens and nothing is printed, so the checker and the counters always agree.
 - **Functions receive `t_ps *`** because they must modify the head pointers of the stacks, which belong to the caller.
 
 ---
