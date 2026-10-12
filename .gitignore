@@ -9,3 +9,7 @@
 *.out
 *.dSYM/
 milestone_3/push_swap/push_swap
+__pycache__/
+*.pyc
+.mypy_cache/
+venv/
