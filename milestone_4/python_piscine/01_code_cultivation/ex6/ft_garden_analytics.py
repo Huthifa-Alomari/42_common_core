@@ -67,7 +67,7 @@ class Plant:
 
     def show(self) -> None:
         self._stats.increment_show()
-        print(f"{self.name}: {self.get_height():.1f}cm,"
+        print(f"{self.name}: {self.get_height():.1f}cm, "
               f"{self.get_age()} days old")
 
 
@@ -109,17 +109,9 @@ class Seed(Flower):
         super().__init__(name, height, age, color, at_bloom)
         self._seed_count: int = seed_count
 
-    @property
-    def seeds(self) -> int:
-        return self._seed_count if self.at_bloom else 0
-
-    @seeds.setter
-    def seeds(self, count: int) -> None:
-        self._seed_count = count
-
     def show(self) -> None:
         super().show()
-        print(f"Seeds: {self.seeds}")
+        print(f"Seeds: {self._seed_count}")
 
 
 class Tree(Plant):
@@ -140,7 +132,7 @@ class Tree(Plant):
     ) -> None:
         super().__init__(name, height, age)
         self.trunk_diameter: float = trunk_diameter
-        self._stats = self._Stats()
+        self._stats: Tree._Stats = self._Stats()
 
     def show(self) -> None:
         super().show()
