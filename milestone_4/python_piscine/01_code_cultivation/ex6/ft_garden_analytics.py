@@ -34,7 +34,7 @@ class Plant:
         return days > 365
 
     @classmethod
-    def create_anonymous(cls):
+    def create_anonymous(cls) -> "Plant":
         return cls("Unknown plant", 0.0, 0)
 
     def get_height(self) -> float:
@@ -111,7 +111,8 @@ class Seed(Flower):
 
     def show(self) -> None:
         super().show()
-        print(f"Seeds: {self._seed_count}")
+        seeds = self._seed_count if self.at_bloom else 0
+        print(f"Seeds: {seeds}")
 
 
 class Tree(Plant):
