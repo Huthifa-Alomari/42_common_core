@@ -5,7 +5,7 @@ class Plant:
         self._age = age
 
     def show(self) -> None:
-        print(f"{self._name}: {self._height}cm, {self._age} days old")
+        print(f"{self._name}: {self._height:.1f}cm, {self._age} days old")
 
     def grow(self, amount: float = 1.0) -> None:
         self._height += amount
@@ -41,16 +41,17 @@ class Tree(Plant):
 
     def show(self) -> None:
         super().show()
-        print(f"Trunk diameter: {self._trunk_diameter}cm")
+        print(f"Trunk diameter: {self._trunk_diameter:.1f}cm")
 
     def produce_shade(self) -> None:
-        print(f"Tree {self._name} now produces a shade of {self._height}cm "
-              f"long and {self._trunk_diameter}cm wide.")
+        print(f"Tree {self._name} now produces a shade of "
+              f"{self._height:.1f}cm "
+              f"long and {self._trunk_diameter:.1f}cm wide.")
 
 
 class Vegetable(Plant):
     def __init__(self, name: str, height: float, age: int,
-                 harvest_season: str, nutritional_value: int) -> None:
+                 harvest_season: str, nutritional_value: float) -> None:
         super().__init__(name, height, age)
         self._harvest_season = harvest_season
         self._nutritional_value = nutritional_value
@@ -58,22 +59,22 @@ class Vegetable(Plant):
     def show(self) -> None:
         super().show()
         print(f"Harvest season: {self._harvest_season}")
-        print(f"Nutritional value: {self._nutritional_value}")
+        print(f"Nutritional value: {round(self._nutritional_value)}")
 
     def grow(self, amount: float = 1.0) -> None:
         super().grow(amount)
-        self._nutritional_value += int(amount / 2)
+        self._nutritional_value += .5
 
     def age(self, days: int = 1) -> None:
         super().age(days)
-        self._nutritional_value += days
+        self._nutritional_value += .5
 
 
 if __name__ == "__main__":
     print("=== Garden Plant Types ===")
 
     print("=== Flower")
-    Rflower = Flower("Rose", 25.0, 10, "red", False)
+    Rflower = Flower("Rose", 15.0, 10, "red", False)
     Rflower.show()
 
     print("[asking the rose to bloom]")
@@ -91,6 +92,7 @@ if __name__ == "__main__":
     Tvegetable.show()
 
     print("[make tomato grow and age for 20 days]")
-    Tvegetable.grow(42.0)
-    Tvegetable.age(20)
+    for i in range(20):
+        Tvegetable.grow(2.1)
+        Tvegetable.age(1)
     Tvegetable.show()
