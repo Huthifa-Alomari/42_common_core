@@ -27,7 +27,7 @@ if __name__ == "__main__":
         else:
             raise ValueError
 
-    except:
+    except ValueError:
         for x in sys.argv[1:]:
             try:
                 int(x)

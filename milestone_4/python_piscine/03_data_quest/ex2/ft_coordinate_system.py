@@ -1,31 +1,65 @@
 import math
 
-def get_player_pos() -> tuple:
-    print("Get a first set of coordinates")
 
-    while(True):
+def get_player_pos() -> None:
+    print("\nGet a first set of coordinates")
+    OK = True
+    while OK:
         try:
-            x1: float = input()
-            y1: float = input()
-            z1: float = input()
-
-            print(f"Enter new coordinates as floats in format "
-                  f"’x,y,z’: {x1:.1f}{y1:.1f}{z1:.1f}")
-
+            coordinates = input("Enter new coordinates as floats in "
+                                "format ’x,y,z’: ")
+            my_tuple = tuple(float(x) for x in coordinates.split(','))
+            if len(my_tuple) == 3:
+                print("Got a first tuple:", my_tuple)
+                print(f"It includes: X={my_tuple[0]}, "
+                      f"Y={my_tuple[1]}, Z={my_tuple[2]}")
+                OK = False
+            else:
+                raise ValueError
         except ValueError:
             print("Invalid syntax")
 
+    print(f"Distance to center: {math.sqrt(my_tuple[0]**2 + my_tuple[1]**2 +
+                                           my_tuple[2]**2):.4f}")
 
-    print("Get a second set of coordinates")
+    OK = True
+    print("\nGet a second set of coordinates")
+    while OK:
+        try:
+            coordinates = input("Enter new coordinates as floats "
+                                "in format ’x,y,z’: ")
+            parts = coordinates.split(',')
+            if len(parts) != 3:
+                raise ValueError("Invalid syntax")
 
+            for p in parts:
+                try:
+                    float(p)
+                except ValueError:
+                    raise ValueError(f"could not convert string to float: "
+                                     f"`{p.strip()}`")
 
+            my_tuple2 = tuple(float(x) for x in parts)
+            OK = False
+        except ValueError as e:
+            err_param = "syntax"
+            for p in coordinates.split(','):
+                try:
+                    float(p)
+                except ValueError:
+                    err_param = p.strip()
+                    break
 
-    print(f"Distance between the 2 sets of coordinates:"
-          f"{math.sqrt((x2-x1)**2 + (y2-y1)**2 + (z2-z1)**2)}")
+            if "could not convert" in str(e):
+                print(f"Error on parameter `{err_param}`: {e}")
+            else:
+                print("Invalid syntax")
 
+    print(f"Distance between the 2 sets of coordinates: "
+          f"{math.sqrt((my_tuple2[0]-my_tuple[0])**2 + (my_tuple2[1] -
+             my_tuple[1])**2 + (my_tuple2[2]-my_tuple[2])**2):.4f}")
 
 
 if __name__ == "__main__":
-    print("=== Player Score Analytics ===")
+    print("=== Game Coordinate System ===")
     get_player_pos()
-
