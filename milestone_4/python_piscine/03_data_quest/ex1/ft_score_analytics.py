@@ -3,13 +3,15 @@ import sys
 
 if __name__ == "__main__":
     print("=== Player Score Analytics ===")
-    try:
-        if len(sys.argv) > 1:
-            for x in sys.argv[1:]:
-                int(x)
+    if len(sys.argv) > 1:
+        scores = []
+        for x in sys.argv[1:]:
+            try:
+                scores.append(int(x))
+            except ValueError:
+                print(f"Invalid parameter: '{x}'")
 
-            scores = [int(x) for x in sys.argv[1:]]
-
+        if scores:
             total_players = len(scores)
             total_score = sum(scores)
             avg_score = total_score / total_players
@@ -25,14 +27,8 @@ if __name__ == "__main__":
             print(f"Low score: {low_score}")
             print(f"Score range: {score_range}")
         else:
-            raise ValueError
-
-    except ValueError:
-        for x in sys.argv[1:]:
-            try:
-                int(x)
-            except ValueError:
-                print(f"Invalid parameter: '{x}'")
-
+            print(f"No scores provided. Usage: python3 {sys.argv[0]} "
+                  f"<score1> <score2> ...")
+    else:
         print(f"No scores provided. Usage: python3 {sys.argv[0]} "
               f"<score1> <score2> ...")

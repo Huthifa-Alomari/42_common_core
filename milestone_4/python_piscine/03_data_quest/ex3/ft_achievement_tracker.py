@@ -7,10 +7,10 @@ MASTER_ACHIEVEMENTS = [
     "Sharp Mind", "Hidden Path Finder"
 ]
 
-if __name__ == "__main__":
+
+def main() -> None:
     players = {}
     for name in ["Alice", "Bob", "Charlie", "Dylan"]:
-
         random_size = random.randint(3, len(MASTER_ACHIEVEMENTS))
         random_sample = random.sample(MASTER_ACHIEVEMENTS, random_size)
         achievement_set = set(random_sample)
@@ -21,11 +21,15 @@ if __name__ == "__main__":
     for name, achievements in players.items():
         print(f"Player {name}: {achievements}")
 
-    all_distinct = set.union(*players.values())
+    all_distinct = set()
+    for achievements in players.values():
+        all_distinct = all_distinct | achievements
 
     print(f"\nAll distinct achievements: {all_distinct}")
 
-    common_achievements = set.intersection(*players.values())
+    common_achievements = set(MASTER_ACHIEVEMENTS)
+    for achievements in players.values():
+        common_achievements = common_achievements & achievements
 
     print(f"\nCommon achievements: {common_achievements}\n")
 
@@ -39,6 +43,11 @@ if __name__ == "__main__":
         print(f"Only {name} has: {exclusive}")
 
     print("\n")
+    master_set = set(MASTER_ACHIEVEMENTS)
     for name, achievements in players.items():
-        missing = all_distinct - achievements
+        missing = master_set - achievements
         print(f"{name} is missing: {missing}")
+
+
+if __name__ == "__main__":
+    main()

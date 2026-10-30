@@ -7,7 +7,7 @@ def get_player_pos() -> None:
     while OK:
         try:
             coordinates = input("Enter new coordinates as floats in "
-                                "format ’x,y,z’: ")
+                                "format 'x,y,z': ")
             my_tuple = tuple(float(x) for x in coordinates.split(','))
             if len(my_tuple) == 3:
                 print("Got a first tuple:", my_tuple)
@@ -19,15 +19,15 @@ def get_player_pos() -> None:
         except ValueError:
             print("Invalid syntax")
 
-    print(f"Distance to center: {math.sqrt(my_tuple[0]**2 + my_tuple[1]**2 +
-                                           my_tuple[2]**2):.4f}")
+    dist1 = math.sqrt(my_tuple[0]**2 + my_tuple[1]**2 + my_tuple[2]**2)
+    print(f"Distance to center: {dist1:.4f}")
 
     OK = True
     print("\nGet a second set of coordinates")
     while OK:
         try:
             coordinates = input("Enter new coordinates as floats "
-                                "in format ’x,y,z’: ")
+                                "in format 'x,y,z': ")
             parts = coordinates.split(',')
             if len(parts) != 3:
                 raise ValueError("Invalid syntax")
@@ -55,9 +55,10 @@ def get_player_pos() -> None:
             else:
                 print("Invalid syntax")
 
-    print(f"Distance between the 2 sets of coordinates: "
-          f"{math.sqrt((my_tuple2[0]-my_tuple[0])**2 + (my_tuple2[1] -
-             my_tuple[1])**2 + (my_tuple2[2]-my_tuple[2])**2):.4f}")
+    dist2 = math.sqrt((my_tuple2[0]-my_tuple[0])**2 + 
+                      (my_tuple2[1]-my_tuple[1])**2 + 
+                      (my_tuple2[2]-my_tuple[2])**2)
+    print(f"Distance between the 2 sets of coordinates: {dist2:.4f}")
 
 
 if __name__ == "__main__":
