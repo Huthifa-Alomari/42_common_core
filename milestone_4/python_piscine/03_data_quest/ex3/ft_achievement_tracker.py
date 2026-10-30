@@ -29,15 +29,14 @@ if __name__ == "__main__":
 
     print(f"\nCommon achievements: {common_achievements}\n")
 
-    counts = {}
+    counts: dict[str, int] = {}
     for achievements in players.values():
-      for achv in achievements:
-        counts[achv] = counts.get(achv, 0) + 1
+        for achv in achievements:
+            counts[achv] = counts.get(achv, 0) + 1
 
     for name, achievements in players.items():
-      exclusive = {achv for achv in achievements if counts[achv] == 1}
-      print(f"Only {name} has: {exclusive}")
-
+        exclusive = {achv for achv in achievements if counts[achv] == 1}
+        print(f"Only {name} has: {exclusive}")
 
     print("\n")
     for name, achievements in players.items():
