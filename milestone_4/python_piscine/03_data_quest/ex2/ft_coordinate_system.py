@@ -55,8 +55,8 @@ def get_player_pos() -> None:
             else:
                 print("Invalid syntax")
 
-    dist2 = math.sqrt((my_tuple2[0]-my_tuple[0])**2 + 
-                      (my_tuple2[1]-my_tuple[1])**2 + 
+    dist2 = math.sqrt((my_tuple2[0]-my_tuple[0])**2 +
+                      (my_tuple2[1]-my_tuple[1])**2 +
                       (my_tuple2[2]-my_tuple[2])**2)
     print(f"Distance between the 2 sets of coordinates: {dist2:.4f}")
 
