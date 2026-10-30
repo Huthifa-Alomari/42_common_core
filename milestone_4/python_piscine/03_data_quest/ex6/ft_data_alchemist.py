@@ -2,7 +2,7 @@ import random
 
 
 def main() -> None:
-    print("=== Game Data Alchemist ===")
+    print("=== Game Data Alchemist ===\n")
 
     players = [
         'Alice', 'bob', 'Charlie', 'dylan',
@@ -17,7 +17,7 @@ def main() -> None:
     print(f"New list of capitalized names only: {cap_only}")
 
     scores = {name: random.randint(1, 1000) for name in all_cap}
-    print(f"Score dict: {scores}")
+    print(f"\nScore dict: {scores}")
 
     avg_score = sum(scores.values()) / len(scores)
     print(f"Score average is {round(avg_score, 2)}")

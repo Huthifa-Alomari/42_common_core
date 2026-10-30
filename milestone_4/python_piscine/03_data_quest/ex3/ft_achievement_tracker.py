@@ -20,7 +20,7 @@ def main() -> None:
     for name in names:
         players.append((name, gen_player_achievements()))
 
-    print("=== Achievement Tracker System ===")
+    print("=== Achievement Tracker System ===\n")
 
     for name, achievements in players:
         print(f"Player {name}: {achievements}")
@@ -29,13 +29,13 @@ def main() -> None:
     for _, achievements in players:
         all_distinct = all_distinct.union(achievements)
 
-    print(f"All distinct achievements: {all_distinct}")
+    print(f"\nAll distinct achievements: {all_distinct}")
 
     common_achievements = set(MASTER_ACHIEVEMENTS)
     for _, achievements in players:
         common_achievements = common_achievements.intersection(achievements)
 
-    print(f"Common achievements: {common_achievements}")
+    print(f"\nCommon achievements: {common_achievements}\n")
 
     for name, achievements in players:
         other_union: set[str] = set()
@@ -45,6 +45,7 @@ def main() -> None:
         exclusive = achievements.difference(other_union)
         print(f"Only {name} has: {exclusive}")
 
+    print("\n")
     master_set = set(MASTER_ACHIEVEMENTS)
     for name, achievements in players:
         missing = master_set.difference(achievements)
