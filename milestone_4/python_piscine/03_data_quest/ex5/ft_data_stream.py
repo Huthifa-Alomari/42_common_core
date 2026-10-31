@@ -1,13 +1,11 @@
 import random
 from typing import Generator
 
-PLAYERS = ["alice", "bob", "charlie", "dylan"]
-ACTIONS = ["run", "eat", "sleep", "grab", "move", "climb", "swim", "release"]
 
-
-def gen_event() -> Generator[tuple[str, str], None, None]:
+def gen_event(players: list[str],
+              actions: list[str]) -> Generator[tuple[str, str], None, None]:
     while True:
-        yield (random.choice(PLAYERS), random.choice(ACTIONS))
+        yield (random.choice(players), random.choice(actions))
 
 
 def consume_event(
@@ -20,7 +18,12 @@ def consume_event(
 
 def main() -> None:
     print("=== Game Data Stream Processor ===")
-    stream = gen_event()
+
+    players = ["alice", "bob", "charlie", "dylan"]
+    actions = ["run", "eat", "sleep", "grab",
+               "move", "climb", "swim", "release"]
+
+    stream = gen_event(players, actions)
 
     for i in range(1000):
         player, action = next(stream)

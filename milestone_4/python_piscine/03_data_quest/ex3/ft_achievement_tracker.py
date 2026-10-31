@@ -1,24 +1,25 @@
 import random
 
-MASTER_ACHIEVEMENTS = [
-    "Crafting Genius", "World Savior", "Master Explorer", "Collector Supreme",
-    "Untouchable", "Boss Slayer", "Strategist", "Unstoppable", "Speed Runner",
-    "Survivor", "Treasure Hunter", "First Steps",
-    "Sharp Mind", "Hidden Path Finder"
-]
 
-
-def gen_player_achievements() -> set[str]:
+def gen_player_achievements(master_achievements: list[str]) -> set[str]:
     random_size = random.randint(6, 10)
-    random_sample = random.sample(MASTER_ACHIEVEMENTS, random_size)
+    random_sample = random.sample(master_achievements, random_size)
     return set(random_sample)
 
 
 def main() -> None:
+    master_achievements = [
+        "Crafting Genius", "World Savior", "Master Explorer",
+        "Collector Supreme", "Untouchable", "Boss Slayer",
+        "Strategist", "Unstoppable", "Speed Runner",
+        "Survivor", "Treasure Hunter", "First Steps",
+        "Sharp Mind", "Hidden Path Finder"
+    ]
+
     names = ["Alice", "Bob", "Charlie", "Dylan"]
     players: list[tuple[str, set[str]]] = []
     for name in names:
-        players.append((name, gen_player_achievements()))
+        players.append((name, gen_player_achievements(master_achievements)))
 
     print("=== Achievement Tracker System ===\n")
 
@@ -31,7 +32,7 @@ def main() -> None:
 
     print(f"\nAll distinct achievements: {all_distinct}")
 
-    common_achievements = set(MASTER_ACHIEVEMENTS)
+    common_achievements = set(master_achievements)
     for _, achievements in players:
         common_achievements = common_achievements.intersection(achievements)
 
@@ -46,7 +47,7 @@ def main() -> None:
         print(f"Only {name} has: {exclusive}")
 
     print("\n")
-    master_set = set(MASTER_ACHIEVEMENTS)
+    master_set = set(master_achievements)
     for name, achievements in players:
         missing = master_set.difference(achievements)
         print(f"{name} is missing: {missing}")

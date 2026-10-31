@@ -17,7 +17,7 @@ def get_player_pos() -> None:
                     float(p)
                 except ValueError:
                     raise ValueError(f"could not convert string to float: "
-                                     f"'{p.strip()}'")
+                                     f"'{p}'")
 
             my_tuple = tuple(float(x) for x in parts)
             print("Got a first tuple:", my_tuple)
@@ -30,7 +30,7 @@ def get_player_pos() -> None:
                 try:
                     float(p)
                 except ValueError:
-                    err_param = p.strip()
+                    err_param = p
                     break
 
             if "could not convert" in str(e):
@@ -56,7 +56,7 @@ def get_player_pos() -> None:
                     float(p)
                 except ValueError:
                     raise ValueError(f"could not convert string to float: "
-                                     f"'{p.strip()}'")
+                                     f"'{p}'")
 
             my_tuple2 = tuple(float(x) for x in parts)
             OK = False
@@ -66,7 +66,7 @@ def get_player_pos() -> None:
                 try:
                     float(p)
                 except ValueError:
-                    err_param = p.strip()
+                    err_param = p
                     break
 
             if "could not convert" in str(e):
