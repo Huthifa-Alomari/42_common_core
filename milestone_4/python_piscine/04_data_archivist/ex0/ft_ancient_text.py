@@ -12,9 +12,9 @@ def main():
 
     try:
         with open(filename, 'r') as f:
-            print("---")
+            print("---\n")
             print(f.read(), end='')
-            print("---")
+            print("\n---")
             print(f"File '{filename}' closed.")
     except Exception as e:
         print(f"Error opening file '{filename}': {e}")
