@@ -1,5 +1,5 @@
 import sys
-import time
+
 
 def main():
     if len(sys.argv) < 2:
@@ -27,7 +27,7 @@ def main():
                 transformed_lines.append(modified_line)
                 print(modified_line)
         print("\n---")
-#======================
+
         print("Enter new file name (or empty): ", end="")
         sys.stdout.flush()
 
@@ -37,7 +37,7 @@ def main():
             new_filename = raw_input[:-1]
         else:
             new_filename = raw_input
-#======================
+
         if new_filename:
             print(f"Saving data to '{new_filename}'")
             try:

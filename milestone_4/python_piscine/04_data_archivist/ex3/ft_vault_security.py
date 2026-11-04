@@ -1,4 +1,7 @@
-def secure_archive(filename: str, action: str = "read", content: str = "") -> tuple[bool, str]:
+import os
+
+
+def secure_archive(filename, action="read", content=""):
     if action == "read":
         try:
             with open(filename, "r") as file:
@@ -18,7 +21,6 @@ def secure_archive(filename: str, action: str = "read", content: str = "") -> tu
 
 
 if __name__ == "__main__":
-    with open(demo_file, "w") as f
     print("=== Cyber Archives Security ===")
 
     print("\nUsing ’secure_archive’ to read from a nonexistent file:")
@@ -27,13 +29,13 @@ if __name__ == "__main__":
     print("\nUsing ’secure_archive’ to read from an inaccessible file:")
     print(secure_archive("/etc/master.passwd", "read"))
 
-    import os
     demo_file = "archive_fragment.txt"
     demo_content = (
         "[FRAGMENT 001] Digital preservation protocols established 2087\n"
         "[FRAGMENT 002] Knowledge must survive the entropy wars\n"
         "[FRAGMENT 003] Every byte saved is a victory against oblivion\n"
     )
+
     with open(demo_file, "w") as f:
         f.write(demo_content)
 
@@ -43,6 +45,7 @@ if __name__ == "__main__":
     print("\nUsing ’secure_archive’ to write previous content to a new file:")
     print(secure_archive("output_vault.txt", "write", demo_content))
 
-    for f in [demo_file, "output_vault.txt"]:
-        if os.path.exists(f):
-            os.remove(f)
+    if os.path.exists(demo_file):
+        os.remove(demo_file)
+    if os.path.exists("output_vault.txt"):
+        os.remove("output_vault.txt")
